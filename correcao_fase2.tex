@@ -71,7 +71,7 @@ O sistema de Banco de Questões possui 4 tipos-entidade: {\texttt{Disciplina}}, 
 
 \subsection{Atributos dos Tipos-Entidade} \label{atributos_entidades}
 
-Nesta subseção serão descritos todos os tipos-entidade, junto com seus atributos que os caracterizam.
+Nesta subseção serão descritos todos os tipos-entidade, junto com os atributos que os caracterizam.
 
 \vspace{0.5cm}
 \begin{center}
@@ -137,7 +137,7 @@ O atributo \texttt{Eh\_Correta} é responsável por identificar se determinada a
 
 \subsection{Atributos Calculados}
 
-O atributo {\texttt{Total\_Respondidas}} é um valor calculado e corresponde ao número total de questões respondidas pelo aluno. O atributo {\texttt{Pontuação}} é um valor calculado e é obtido a cada questão que o aluno responde corretamente. É importante ressaltar que um aluno não perde pontos caso responda incorretamente determinada questão. Este atributo pode ajudar tanto o aluno, quanto o professor, através dele ambos podem acompanhar o nível de aprendizado.\\
+O atributo {\texttt{Total\_Respondidas}} é um atributo calculado e corresponde ao número total de questões respondidas pelo aluno. O atributo {\texttt{Pontuação}} também calculado e é obtido a cada questão que o aluno responde corretamente. É importante ressaltar que um aluno não perde pontos caso responda incorretamente determinada questão. Este atributo pode ajudar tanto o aluno, quanto o professor, através dele ambos podem acompanhar o nível de aprendizado.\\
 
 O atributo \texttt{Número\_Questões} é gerado através do tipo-relacionamento \texttt{DISCIPLINA possui QUESTÃO} e é responsável por armazenar o número de Questões existentes em uma determinada \texttt{Disciplina}. Por último, o atributo \texttt{Numero\_Alunos} é gerado pelo tipo-relacionamento \texttt{DISCIPLINA inscreve ALUNO} e é responsável por armazenar o número de \texttt{Alunos} existentes em uma determinada \texttt{Disciplina}.\\
 
