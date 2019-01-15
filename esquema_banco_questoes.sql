@@ -20,18 +20,16 @@ CREATE TABLE aluno (
     Email_Aluno varchar(255) NOT NULL UNIQUE, 
     Tel_Residencial varchar(13) NOT NULL,
     Tel_Celular varchar(14) NOT NULL,
-    Codigo_Disciplina int NOT NULL  -- Chave Estrangeira
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) -- Chave Estrangeira
 );
-
--- aluno.Codigo_Disciplina referencia disciplina.Codigo_Disciplina
-ALTER TABLE aluno ADD FOREIGN KEY (Codigo_Disciplina) REFERENCES disciplina(Codigo_Disciplina); 
 
 
 -- Tabela Questão
 CREATE TABLE questao (
     ID_Questao SERIAL NOT NULL PRIMARY KEY,
     Texto_Questao text NOT NULL,
-    Peso int NOT NULL DEFAULT 1
+    Peso int NOT NULL DEFAULT 1,
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) -- Chave Estrangeira
 );
 
 
@@ -43,27 +41,18 @@ CREATE TABLE alternativa (
     ID_Alternativa SERIAL NOT NULL,
     Texto_Alternativa text NOT NULL,
     Eh_Correta Eh_Correta_t,
-    ID_Questao int NOT NULL,  -- Chave Estrangeira
+    ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
     PRIMARY KEY (ID_Alternativa, ID_Questao)
 );
-
--- alternativa.ID_Questao referencia questao.ID_Questao
-ALTER TABLE alternativa ADD FOREIGN KEY (ID_Questao) REFERENCES questao(ID_Questao); 
 
 
 -- Tabela Responde
 CREATE TABLE responde (
-    RA_Aluno int NOT NULL,  -- Chave Estrangeira
-    ID_Questao int NOT NULL,  -- Chave Estrangeira
+    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno),  -- Chave Estrangeira
+    ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
     Opcao Eh_Correta_t,
     PRIMARY KEY (RA_Aluno, ID_Questao)
 );
-
--- responde.RA_Aluno referencia aluno.RA
-ALTER TABLE responde ADD FOREIGN KEY (RA_Aluno) REFERENCES aluno(RA_Aluno); 
--- responde.ID_Questao referencia questao.ID_Questao
-ALTER TABLE responde ADD FOREIGN KEY (ID_Questao) REFERENCES questao(ID_Questao); 
-
 
 
 
