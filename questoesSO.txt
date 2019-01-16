@@ -1,0 +1,232 @@
+1) Relacione os seguintes comandos do sistema operacional Debian com seus respectivos objetivos.
+
+Comandos
+1. apt-get 
+2. sudo 
+3. tail 
+4. cat 
+
+Objetivos
+( ) Exibir o conteúdo final de um arquivo. 
+( ) Executar um comando como outro usuário. 
+( ) Gerenciamento de pacotes. 
+( ) Concatenar arquivos ou entrada padrão e exibir na saída padrão. 
+
+Assinale a alternativa que indica a sequência correta, de cima para baixo.
+a) 1 – 2 – 3 – 4
+b) 2 – 1 – 3 – 4
+c) 2 – 4 – 1 – 3
+-> d) 3 – 2 – 1 – 4
+
+
+2) No console do sistema operacional Linux, alguns comandos permitem executar operações com arquivos e diretórios do disco.
+
+Os comandos utilizados para criar, acessar e remover um diretório vazio são, respectivamente,
+
+pwd, mv e rm. 
+md, ls e rm. 
+-> mkdir, cd e rmdir. 
+cdir, lsdir e erase.
+
+
+3) A estrutura de diretórios em árvore é utilizada em diversos sistemas operacionais. Uma das características dessa estrutura é:
+-> A. cada usuário pode criar vários níveis de diretórios (ou subdiretórios), sendo que cada um pode conter arquivos e subdiretórios.
+B. cada usuário possui o seu diretório exclusivo, no qual todos os seus arquivos são armazenados, e não tem acesso e nem conhecimento de outros diretórios.
+D. o caminho absoluto para um arquivo é quando ele é referenciado a partir do diretório corrente.
+E. um arquivo é especificado por meio de um caminho relativo, que descreve todos os diretórios percorridos a partir da raiz até o diretório no qual o arquivo se encontra.
+
+
+4) Com relação a tipos de sistemas operacionais, utilização de recursos e forma como esses tipos são estruturados, assinale a opção correta.
+A. No sistema operacional do tipo monotarefa, as aplicações são executadas de maneira simultânea, ou seja, o tempo de processamento é dividido entre as aplicações em execução.
+B. No sistema operacional do tipo cliente-servidor, utiliza-se uma máquina virtual criada por um programa que simule o processador e outros recursos.
+-> C. No sistema operacional do tipo monolítico, uma coleção de rotinas pode chamar qualquer outra rotina, uma vez que cada uma delas possui interface definida.
+D. O sistema operacional do tipo batch organiza-se em camadas, cada uma das quais faz referência apenas aos módulos das camadas anteriores.
+
+
+
+5) Um sistema operacional
+-> A. possui um kernel, que é responsável pelas funções de baixo nível, como gerenciamento de memória, de processos, dos subsistemas de arquivos e suporte aos dispositivos e periféricos conectados ao computador.
+B. é do tipo BIOS quando se encarrega de ativar os recursos da máquina, como processador, placa de vídeo, unidades de disco e memória ROM e RAM.
+C. é do tipo firmware quando precisa ser carregado para a memória RAM de um dispositivo de hardware, como scanners e impressoras a laser.
+D. multiusuário permite que diversos usuários utilizem simultaneamente os recursos de um computador monotarefa.
+
+
+
+6) Organizar o disco e possibilitar trabalhar fazendo, por exemplo, cópia, exclusão e mudança no local dos arquivos são ações importantes nas atividades cotidianas em informática.
+
+Qual a estrutura usada para organizar arquivos e demais informações no meio digital, no ambiente dos sistemas operacionais?
+
+-> A. Diretórios.
+B. Assessórios.
+C. Painel de Controle.
+D. Propriedades do Sistema.
+
+
+7) Sobre sistemas operacionais é INCORRETO afirmar:
+
+-> A. O sistema operacional é uma camada de hardware que separa as aplicações do software que elas acessam e fornece serviços que permitem que cada aplicação seja executada com segurança e efetividade.
+B. Na maioria dos sistemas operacionais um usuário requisita ao computador que execute uma ação (por exemplo, imprimir um documento), e o sistema operacional gerencia o software e o hardware para produzir o resultado esperado.
+C. Um usuário interage com o sistema operacional via uma ou mais aplicações de usuário e, muitas vezes, por meio de uma aplicação especial denominada shell ou interpretador de comandos.
+E. O software que contém os componentes centrais do sistema operacional chama-se núcleo (kernel).
+
+
+8) O Ubuntu é um sistema operacional open source que foi criado com base na distribuição Linux Debian. Ele possui uma ferramenta gerenciadora de pacotes, denominada apt, que traz facilidade na instalação de novas aplicações para esse SO.
+
+O comando necessário para buscar um pacote denominado provati por meio do apt, é:
+
+A. sudo apt update provati.
+B. sudo apt-get cache provati.
+-> C. sudo apt search provati.
+D. sudo apt edit-sources provati.
+
+
+9) Um sistema operacional, no geral, tem como funções: o gerenciamento de processos, o gerenciamento de memória, o sistema de arquivos e a entrada e saída de dados. Independente do sistema operacional utilizado, essas funções são executadas. Os sistemas operacionais podem ser classificados em relação ao seu projeto, ou seja, a arquitetura quanto ao gerenciamento de processos e ao número de usuários que podem utilizar o sistema simultaneamente. Sobre a classificação dos sistemas operacionais, assinale A (Arquitetura) e P (Processos) nos sistemas apresentados a seguir.
+
+( ) Sistema em camadas.
+( ) Monitor de máquinas virtuais.
+( ) Multiprogramação.
+( ) Micronúcleo.
+( ) Multitarefa.
+
+A sequência está correta em
+
+A. A, P, A, P, A.
+B. P, A, P, P, A.
+-> C. A, A, P, A, P.
+D. P, P, A, P, A.
+
+
+10) Sobre comandos do MS-DOS está INCORRETO o que se afirma em:
+-> A. LS é utilizado para mudar a pasta corrente para a pasta especificada.
+B. COPY é utilizado para copiar um ou mais arquivos para o diretório especificado.
+C. CLS é utilizado para limpar a tela e posicionar o cursor na primeira linha do prompt.
+D. MD é utilizado para criar uma pasta no diretório corrente com o nome especificado.
+
+
+11) Trata-se do conjunto de programas que faz o computador funcionar adequadamente, além de fornecer uma interface gráfica amigável e possibilitar o uso dos demais programas de computador. Esse conceito refere-se ao:
+A. Driver básico de periférico.
+-> C. Sistema operacional.
+D. Plugin.
+E. Hotswap.
+
+
+12) Atualmente, no mercado, há vários sistemas operacionais. Caracterizam-se como exemplos de sistema operacional:
+A. Internet Explorer e Windows XP.
+B. Windows Vista e Firefox.
+C. Write e Windows Vista.
+-> D. Ubuntu e Windows 7.
+
+
+13) São exemplos de versões ou distribuições de sistemas operacionais, EXCETO:
+
+A. Windows XP.
+B. Red Hat Linux.
+-> C. Windows Chrome.
+D. Linux Ubuntu.
+
+
+14) Analise as seguintes sentenças:
+
+I. O UNIX é um sistema operacional de grande eficiência, escrito na linguagem C, que se caracteriza por sua grande portabilidade.
+II. O DOS é um sistema operacional de 32 bits, que possui um ambiente gráfico e objetos caracterizados por janelas, ícones e botões.
+III. O Windows Vista possui uma versão popular denominada ultimate, com recursos limitados, encontrada somente em fabricantes de máquinas prontas (OEM).
+
+Sobre as sentenças acima, pode-se afirmar que apenas:
+
+-> A. I é verdadeira;
+B. II é verdadeira;
+C. III é verdadeira;
+E. I e III são verdadeiras.
+
+
+Existem vários sistemas operacionais no mercado. Todos, porém, realizam as mesmas operações básicas. Com relação aos sistemas operacionais, podemos considerar:
+
+I. Conjunto de programas que gerenciam os recursos do computador, como acesso ao disco, gerenciamento de memória e gerenciamento de arquivos.
+II. Conjunto de editores de textos, banco de dados, planilhas eletrônicas para automação comercial.
+III. Conjunto de programas que faz a interface entre o usuário e o computador.
+IV. Conjunto de programas que tem como objetivo a segurança do computador, como firewall, antivírus e criação de cópias de segurança.
+
+É correto o que se afirma APENAS em:
+
+-> A. I e III.
+B. I e IV
+C. I e II.
+D. Todas são corretas.
+
+
+16) Para garantir a execução apropriada do Sistema Operacional (SO), há pelo menos duas modalidades de execução. No momento da inicialização do SO, o hardware começa a operar na modalidade ..I.... . O SO é carregado e dá início às aplicações das pessoas que utilizam o computador na modalidade ..II.... . 
+
+As lacunas I e II são, correta e respectivamente, preenchidas com:
+a) de firmware - de aplicativo
+b) prioritária - de programa
+d) prioritária - sem privilégios
+-> e) de kernel - de usuário
+
+
+17) Assinale a alternativa que indica corretamente o parâmetro do comando ipconfg, responsável por renovar todos os adaptadores de rede no Sistema Operacional Windows 7.
+a) ipconfg
+b) ipconfg / all
+-> c) ipconfg / renew
+d) ipconfg / release
+
+
+18) Assinale a alternativa que indica corretamente a sequência padrão utilizada no Sistema Operacional Linux para configuração, compilação e instalação de um programa a partir de seu código fonte.
+-> a) ./confgure; make; makeinstal
+b) makeconfg; make; makeinstall
+c) makeinstall; make; ./confgure
+d) make; makeinstall; ./confgure
+
+
+19) Os sistemas operacionais
+a) fazem parte dos chamados softwares aplicativos, incorporando diversas funções.
+b) servem para armazenar dados enquanto o computador estiver ligado.
+c) incorporam muitos recursos à máquina, tornando-a quase sempre multiprocessadora e plug-and-play.
+-> d) têm rotinas que não são executadas de forma linear, mas, sim, concorrentemente, em função de eventos assíncronos.
+
+
+20) O tipo de virtualização utilizada para separar o sistema operacional e suas aplicações do dispositivo físico é denominado virtualização de
+a) hardware.
+b) servidor.
+c) aplicação.
+-> d) desktop.
+
+
+21) Quando um usuário executa um programa, processos são criados e inseridos em uma lista. Um processo vai passando para o topo da lista à medida que outros concluem sua vez de usar o processador. Quando um processo chega ao topo da lista e há um processador disponível, aquele processo é designado a um processador e diz-se que ele fez uma transição de estado, passando do estado de
+
+A. espera para o estado de pronto.
+C. bloqueado para o estado de pronto.
+-> D. pronto para o estado de execução.
+E. bloqueado para o estado de execução.
+
+
+22) Nos sistemas operacionais multiprogramáveis e(ou) multitarefas, os mecanismos básicos que tornam possível a execução de tarefas concorrentes são
+A. o acesso direto à memória e a reentrância.
+-> B. a interrupção e a exceção.
+C. o buffering e o spooling.
+D. a interrupção e a memória secundária.
+
+
+23) Em um cenário no qual os processos trabalham concorrendo e compartilhando recursos, ocorrerá deadlock quando
+A. recursos já alocados possam ser retirados do processo que os alocou, a qualquer momento, por qualquer processo.
+-> B. um processo A espera por um processo B, que espera pelo processo C, que espera pelo processo A.
+C. processos não obtêm acesso exclusivo a recursos.
+D. um recurso possa ser alocado para um processo em qualquer momento.
+
+
+24) Quando um computador é multiprogramado, muitas vezes há dois ou mais processos no estado de pronto que competem pela CPU ao mesmo tempo. Nesse contexto,
+A. a unidade de controle de interrupções, parte do sistema operacional, escolhe qual processo entrará em execução.
+B. o sistema utiliza o algoritmo de fila duplamente encadeada para escalonar os processos.
+-> C. quando se usa um algoritmo de escalonamento não preemptivo, o processo executa até o fim, sem ser interrompido.
+E. quando se usa um algoritmo de escalonamento preemptivo, o processo executa em fatias de tempo chamadas quantum, determinadas pelo usuário.
+
+
+25) Considere o trecho a seguir no contexto de sistemas operacionais.
+
+Um conjunto de processos está num bloqueio perpétuo quando cada processo do conjunto está esperando por um evento que apenas outro processo do conjunto pode causar.
+
+A situação descrita é típica da ocorrência de um:
+
+A. timeout;
+-> B. deadlock;
+C. timestamp;
+D. system halt;
