@@ -2,6 +2,7 @@
 INSERT INTO disciplina (codigo_disciplina, nome_disciplina, nome_professor, departamento) VALUES (11111, 'Banco de Dados', 'Sahudy', 'DComp');
 
 
+-- Questões BD
 INSERT INTO questao (texto_questao, codigo_disciplina) VALUES ('PostgreSQL é', 11111);
 INSERT INTO questao (texto_questao, codigo_disciplina) VALUES ('A instrução JOIN em SQL é utilizada para consultar informações de duas ou mais tabelas, baseadas em relações entre colunas destas tabelas. Um dos tipos de JOIN é o INNER JOIN que retorna linhas ', 11111);
 INSERT INTO questao (texto_questao, codigo_disciplina) VALUES ('Analise os seguintes comandos em SQL:
@@ -119,3 +120,132 @@ CREATE TABLE Pessoa (     PessoaID int ,
 Após a criação, a tabela foi preenchida, porém o programador percebeu que todos os Nomes foram colocados no lugar do Sobrenome e vice-versa.
 
 Que instrução SQL pode ser usada para realizar a troca, corrigindo a base?', 11111);
+
+
+
+
+-- Alternativas
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('um algoritmo de conteúdos.', 'Nao', 1);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('uma linguagem de programação.', 'Nao', 1);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('um gerenciador de banco de dados.', 'Sim', 1);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('um servidor de páginas web.', 'Nao', 1);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('não importando a correspondência entre as tabelas, criando uma relação entre as linhas e colunas.', 'Nao', 2);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('quando existir correspondência em apenas uma das tabelas.', 'Nao', 2);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('não importando a correspondência entre as tabelas, criando uma relação entre as linhas, apenas.', 'Nao', 2);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('quando existir ao menos uma correspondência em ambas as tabelas.', 'Sim', 2);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('12.5', 'Nao', 3);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('3', 'Nao', 3);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('11.5, 12.5 e 15.5', 'Nao', 3);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('2', 'Sim', 3);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('instância.', 'Nao', 4);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('registro.', 'Nao', 4);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('domínio.', 'Sim', 4);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('entidade.', 'Nao', 4);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('consistência e durabilidade.', 'Nao', 5);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('bilidade e independência.', 'Nao', 5);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('independência e confiabilidade.', 'Nao', 5);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('atomicidade e consistência.', 'Sim', 5);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('query', 'Nao', 6);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('media', 'Nao', 6);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('med', 'Nao', 6);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('avg', 'Sim', 6);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('1FNe 2FN', 'Sim', 7);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('2FNe 1FN', 'Nao', 7);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('2FNe 3FN', 'Nao', 7);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('3FNe 1FN', 'Nao', 7);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('JOIN e ORDERBY', 'Nao', 8);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('GROUPING e ORDER BY', 'Nao', 8);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('HAVING e SORT BY', 'Nao', 8);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('HAVING e ORDER BY', 'Sim', 8);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('=', 'Nao', 9);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('<-', 'Nao', 9);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES (': =', 'Sim', 9);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('<<', 'Nao', 9);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('REMOVE TABLE', 'Nao', 10);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('DELETE TABLE', 'Nao', 10);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('DROP TABLE', 'Sim', 10);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('ERASE TABLE', 'Nao', 10);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('retângulos, losangos e círculos.', 'Sim', 11);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('retângulos, círculos e losangos.', 'Nao', 11);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('losangos, retângulos e círculos.', 'Nao', 11);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('círculos, losangos e retângulos.', 'Nao', 11);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('ORDER BY Tipo.', 'Nao', 12);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('HAVING Tipo LIKE “ “.', 'Nao', 12);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('WHERE Tipo IN GROUP.', 'Nao', 12);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('GROUP BY Tipo', 'Sim', 12);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Chave primária.', 'Nao', 13);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Superchave.', 'Sim', 13);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Especialização.', 'Nao', 13);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Generalização.', 'Nao', 13);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Select, distinct, where.', 'Nao', 14);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Select, from, where.', 'Sim', 14);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Select, distinct, from.', 'Nao', 14);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('From, where, distinct.', 'Nao', 14);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Uma entidade é um objeto no mundo real que pode ser identificada de forma unívoca em relação a todos os outros objetos.', 'Sim', 15);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Define-se por “conjunto de entidades”, entidades de tipos diferentes com propriedades diferentes.', 'Nao', 15);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Uma entidade é uma associação entre vários relacionamentos.', 'Nao', 15);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('As entidades são utilizadas unicamente para efetuar o mapeamento das cardinalidades.', 'Nao', 15);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('A afirmação I está correta.', 'Sim', 16);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('A afirmação II está correta.', 'Nao', 16);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('As afirmações I e III estão corretas.', 'Nao', 16);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES (' Todas as afirmações estão corretas.', 'Nao', 16);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Modelo conceitual.', 'Nao', 17);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Modelo lógico.', 'Sim', 17);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Modelo físico.', 'Nao', 17);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Modelo orientado a objeto.', 'Nao', 17);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('A afirmação I está correta.', 'Nao', 18);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('A afirmação II está correta.', 'Sim', 18);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Nenhuma afirmação está correta.', 'Nao', 18);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES (' Todas as afirmações estão corretas.', 'Nao', 18);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Primeira forma normal.', 'Sim', 19);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Segunda forma normal.', 'Nao', 19);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Terceira forma normal.', 'Nao', 19);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Quarta forma normal.', 'Nao', 19);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('por conter valores repetidos.', 'Nao', 20);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('por não possuir relacionamentos.', 'Nao', 20);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('por não possuir atributos multivalorados.', 'Nao', 20);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('por não possuir um atributo chave.', 'Sim', 20);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('banco de informações relacionado a outros bancos.', 'Nao', 21);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('conjunto de IDEs desenvolvidas para criar programas.', 'Nao', 21);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('conjunto de tabelas, cada qual designada por apenas um nome.', 'Sim', 21);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('coleção de relações que constituem os registros de um atributo.', 'Nao', 21);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('I e II, somente.', 'Nao', 22);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('II e III, somente.', 'Sim', 22);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('I e III, somente.', 'Nao', 22);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('todas', 'Nao', 22);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('físico; lógica; conceitual', 'Sim', 23);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('lógico; física; conceitual', 'Nao', 23);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('lógico; lógica; conceitual', 'Nao', 23);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('conceitual; lógica; lógico', 'Nao', 23);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('William', 'Sim', 24);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Fulano', 'Nao', 24);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('da Silva', 'Nao', 24);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Carlos', 'Nao', 24);
+
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('SELECT Nome As Sobrenome, Sobrenome AS Nome FROM Pessoa', 'Nao', 25);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('UPDATE Nome=Sobrenome, Sobrenome=Nome FROM Pessoa', 'Nao', 25);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('UPDATE Pessoa SET Nome,Sobrenome WITH (SELECT Sobrenome,Nome FROM Pessoa)', 'Nao', 25);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('UPDATE Pessoa SET Nome=Sobrenome, Sobrenome=Nome', 'Sim', 25);
