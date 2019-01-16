@@ -18,8 +18,8 @@ CREATE TABLE aluno (
     Nome_Aluno varchar(255) NOT NULL,
     CPF varchar(14) NOT NULL UNIQUE,
     Email_Aluno varchar(255) NOT NULL UNIQUE, 
-    Tel_Residencial varchar(13) NOT NULL,
-    Tel_Celular varchar(14) NOT NULL,
+    Tel_Residencial varchar(14) NOT NULL,
+    Tel_Celular varchar(15) NOT NULL,
     Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) -- Chave Estrangeira
 );
 
