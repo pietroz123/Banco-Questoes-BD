@@ -12,12 +12,13 @@ INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (826384 'Alexandre Benjamin Ian Bernardes', '927.052.178-86', 'aalexandrebenjaminianbernardes@plastic.com.br', '(11) 3620-6334', '(11) 99841-9296', 11111);
 
 -- Alunos de SO
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (240891 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (111133 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (659187 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (914258 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (319322 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (693596 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (282384 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (282390 '', '', '', '', '', );
-INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (691045 '', '', '', '', '', );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (240891 'Leandro Gabriel Pereira', '549.927.378-20', 'leandrogabrielpereira_@selfcd.com.br', '(11) 2710-2355', '(11) 98952-0541', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (111133 'Augusto Juan Campos', '447.102.398-51', 'augustojuancampos-90@power.alston.com', '(11) 2545-3263', '(11) 98773-7381', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (659187 'Aurora Laura Marli Martins', '056.131.768-25', 'auroralauramarlimartins@dillon.com.br', '(11) 3763-0415', '(11) 98458-9597', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (914258 'César Tiago Barros', '308.367.738-37', 'cesartiagobarros@konzeption.com.br', '(11) 3700-0109', '(11) 98247-1162', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (319322 'Renato Raul Souza', '546.415.918-57', 'renatoraulsouza@mx.labinal.com', '(11) 3789-9482', '(11) 98525-7479', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (693596 'Benício Manuel Viana', '026.010.458-25', 'bbeniciomanuelviana@maissaude.adm.br', '(11) 2968-2476', '(11) 99160-0020', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (282384 'Clara Lorena da Cunha', '996.021.298-08', 'claralorenadacunha_@yahoo.de', '(11) 3592-6006', '(11) 98973-2565', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (282390 'Enzo Mário Nunes', '324.191.268-07', 'eenzomarionunes@engineer.com', '(11) 2683-3268', '(11) 98627-7386', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (691045 'Antonio Eduardo Manuel Novaes', '669.849.188-80', 'antonioeduardomanuelnovaes@purkyt.com', '(11) 3588-1824', '(11) 99819-5790', 22222 );
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) VALUES (671045 'Sophie Carolina Gonçalves', '762.556.928-41', 'sophiecarolinagoncalves@iaru.com', '(11) 3931-1890', '(11) 98332-5499', 22222 );
