@@ -8,9 +8,9 @@ CREATE TABLE disciplina (
     Codigo_Disciplina int NOT NULL PRIMARY KEY,
     Nome_Disciplina varchar(255) NOT NULL,
     Nome_Professor varchar(255) NOT NULL,
-    Departamento varchar(255) NOT NULL    
+    Departamento varchar(255) NOT NULL,
+    Numero_Alunos int NOT NULL CHECK (Numero_Alunos < 60)   -- !!VOLTAR
 );
-
 
 -- Tabela Aluno
 CREATE TABLE aluno (
@@ -20,7 +20,8 @@ CREATE TABLE aluno (
     Email_Aluno varchar(255) NOT NULL UNIQUE, 
     Tel_Residencial varchar(14) NOT NULL,
     Tel_Celular varchar(15) NOT NULL,
-    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) -- Chave Estrangeira
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina), -- Chave Estrangeira
+    Total_Respondidas int NOT NULL DEFAULT 0 -- !!VOLTAR
 );
 
 
