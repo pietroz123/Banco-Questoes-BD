@@ -1,6 +1,8 @@
 
 -- Alunos de BD
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) 
+VALUES (743512, 'Bianca Gomes Rodrigues', '444.618.208.07', 'bgsrd@outlook.com', '(15) 3293-2383', '(15) 99143-4900', 11111);
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) 
 VALUES (611685, 'Lucas Oliver Victor Melo', '098.810.918-29', 'lucasolivervictormelo@granvale.com.br', '(11) 3819-0035', '(11) 98958-3398', 11111);
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) 
 VALUES (851725, 'Vicente Nathan Francisco Mendes', '465.775.178-60', 'vicentenathanfranciscomendes@caferibeiro.com.br', '(11) 2613-9077', '(11) 98630-7733', 11111);
@@ -22,6 +24,8 @@ INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_
 VALUES (125656, 'Alexandre Benjamin Ian Bernardes', '927.052.178-86', 'aalexandrebenjaminianbernardes@plastic.com.br', '(11) 3620-6334', '(11) 99841-9296', 11111);
 
 -- Alunos de SO
+INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) 
+VALUES (743588, 'Pietro Zuntini Bonfim', '410.242.338-98', 'pietrozuntini@gmail.com', '(15) 3228-1918', '(15) 99713-6093', 22222);
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) 
 VALUES (240891, 'Leandro Gabriel Pereira', '549.927.378-20', 'leandrogabrielpereira_@selfcd.com.br', '(11) 2710-2355', '(11) 98952-0541', 22222 );
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular, Codigo_Disciplina) 

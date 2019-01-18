@@ -1,18 +1,18 @@
--- Criação do banco
+--* Criação do banco
 CREATE DATABASE banco_questoes;
 
--- Criação das Tabelas
+--* Criação das Tabelas
 
--- Tabela Disicplinas
+--* Tabela Disicplinas
 CREATE TABLE disciplina (
     Codigo_Disciplina int NOT NULL PRIMARY KEY,
     Nome_Disciplina varchar(255) NOT NULL,
     Nome_Professor varchar(255) NOT NULL,
     Departamento varchar(255) NOT NULL,
-    Numero_Alunos int NOT NULL CHECK (Numero_Alunos < 60)   -- !!VOLTAR
+    Numero_Alunos int NOT NULL CHECK (Numero_Alunos < 60)   --! VOLTAR
 );
 
--- Tabela Aluno
+--* Tabela Aluno
 CREATE TABLE aluno (
     RA_Aluno int NOT NULL PRIMARY KEY,
     Nome_Aluno varchar(255) NOT NULL,
@@ -20,12 +20,20 @@ CREATE TABLE aluno (
     Email_Aluno varchar(255) NOT NULL UNIQUE, 
     Tel_Residencial varchar(14) NOT NULL,
     Tel_Celular varchar(15) NOT NULL,
-    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina), -- Chave Estrangeira
-    Total_Respondidas int NOT NULL DEFAULT 0 -- !!VOLTAR
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina), -- Chave Estrangeira   --! Verificar (tabela aluno_disciplina)
+    Total_Respondidas int NOT NULL DEFAULT 0 --! VOLTAR
 );
 
 
--- Tabela Questão
+--! Verificar
+--* Tabela Aluno_Disciplina
+CREATE TABLE aluno_disciplina (
+    ra
+    codigo
+);
+
+
+--* Tabela Questão
 CREATE TABLE questao (
     ID_Questao SERIAL NOT NULL PRIMARY KEY,
     Texto_Questao text NOT NULL,
@@ -34,10 +42,10 @@ CREATE TABLE questao (
 );
 
 
--- Enum para Sim e Não
+--* Enum para Sim e Não
 CREATE TYPE Eh_Correta_t AS ENUM('Sim', 'Nao');
 
--- Tabela Alternativa
+--* Tabela Alternativa
 CREATE TABLE alternativa (
     ID_Alternativa SERIAL NOT NULL,
     Texto_Alternativa text NOT NULL,
@@ -47,7 +55,7 @@ CREATE TABLE alternativa (
 );
 
 
--- Tabela Responde
+--* Tabela Responde
 CREATE TABLE responde (
     RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno),  -- Chave Estrangeira
     ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
@@ -56,7 +64,15 @@ CREATE TABLE responde (
 );
 
 
+--! Verificar
+CREATE TABLE responde (
+    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno),  -- Chave Estrangeira
+    ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
+    Opcao int NOT NULL REFERENCES alternativa(ID_Alternativa), -- Chave Estrangeira
+    PRIMARY KEY (RA_Aluno, ID_Questao)
+);
 
 
--- Criação das Triggers
+
+--* Criação das Triggers
 
