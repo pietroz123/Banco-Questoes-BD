@@ -634,3 +634,62 @@ INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('dea
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('timestamp;', 'Nao', 50);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('system halt;', 'Nao', 50);
 
+
+--* Tabela Responde
+CREATE TABLE responde (
+    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
+    ID_Questao int NOT NULL REFERENCES questao(ID_Questao) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
+    -- Opcao int NOT NULL REFERENCES alternativa(ID_Alternativa) ON DELETE CASCADE ON UPDATE CASCADE, --! Por que não funciona? Chave Estrangeira
+    Opcao int NOT NULL,
+    PRIMARY KEY (RA_Aluno, ID_Questao)
+);
+
+
+--* Atualiza o número de QUESTOES respondidas pelo ALUNO a cada questão respondida.
+CREATE FUNCTION atualizar_totalRespondidas() RETURNS TRIGGER AS $atualizar_totalRespondidas$
+    BEGIN
+        IF (TG_OP = 'INSERT') THEN
+            UPDATE aluno SET Total_Respondidas = (Total_Respondidas + 1) WHERE aluno.RA_Aluno = NEW.RA_Aluno; 
+			RETURN NEW;
+        ELSIF (TG_OP = 'DELETE') THEN
+            UPDATE aluno SET Total_Respondidas = (Total_Respondidas - 1) WHERE aluno.RA_Aluno = OLD.RA_Aluno; 
+			RETURN OLD;
+        END IF;
+    END;
+$atualizar_totalRespondidas$ LANGUAGE plpgsql;
+
+-- Cria a trigger
+CREATE TRIGGER atualizar_totalRespondidas 
+AFTER DELETE OR INSERT 
+ON responde
+FOR EACH ROW EXECUTE PROCEDURE atualizar_totalRespondidas();
+
+
+--* Atualiza a pontuacao do ALUNO.
+CREATE FUNCTION atualizar_pontuacao() RETURNS TRIGGER AS $atualizar_pontuacao$
+    DECLARE
+        resultado Eh_Correta_t;
+    BEGIN
+        SELECT Eh_Correta INTO resultado FROM alternativa WHERE ID_Alternativa = NEW.Opcao; 
+        IF (resultado = 'Sim') THEN
+            UPDATE aluno SET Pontuacao = (Pontuacao + 1) WHERE aluno.RA_Aluno = NEW.RA_Aluno; 
+			RETURN NEW;
+        END IF;
+    
+        RETURN NULL;
+    END;
+$atualizar_pontuacao$ LANGUAGE plpgsql;
+
+-- Cria a trigger
+CREATE TRIGGER atualizar_pontuacao 
+AFTER INSERT 
+ON responde
+FOR EACH ROW EXECUTE PROCEDURE atualizar_pontuacao();
+
+
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743588, 1, 3);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743588, 15, 58);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743588, 43, 169);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 9, 33);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 25, 99);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 33, 131);
