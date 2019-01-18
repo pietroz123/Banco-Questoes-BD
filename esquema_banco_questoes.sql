@@ -9,7 +9,8 @@ CREATE TABLE disciplina (
     Nome_Disciplina varchar(255) NOT NULL,
     Nome_Professor varchar(255) NOT NULL,
     Departamento varchar(255) NOT NULL,
-    Numero_Alunos int NOT NULL CHECK (Numero_Alunos < 60)   --! VOLTAR
+    Numero_Questoes int NOT NULL DEFAULT 0,
+    Numero_Alunos int NOT NULL DEFAULT 0 CHECK (Numero_Alunos < 20)   --! VOLTAR
 );
 
 --* Tabela Aluno
@@ -20,16 +21,15 @@ CREATE TABLE aluno (
     Email_Aluno varchar(255) NOT NULL UNIQUE, 
     Tel_Residencial varchar(14) NOT NULL,
     Tel_Celular varchar(15) NOT NULL,
-    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina), -- Chave Estrangeira   --! Verificar (tabela aluno_disciplina)
-    Total_Respondidas int NOT NULL DEFAULT 0 --! VOLTAR
+    Total_Respondidas int NOT NULL DEFAULT 0, --! VOLTAR
+    Pontuacao int NOT NULL DEFAULT 0
 );
 
 
---! Verificar
 --* Tabela Aluno_Disciplina
 CREATE TABLE aluno_disciplina (
-    ra
-    codigo
+    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE, -- Chave Estrangeira / Caso o ALUNO seja deletado, então a linha que relaciona este ALUNO a  DISCIPLINA também deixa de existir, ou seja, o ALUNO não está mais inscrito na DISCIPLINA.
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE -- Chave Estrangeira / Caso uma DISCIPLINA seja deletada, se um ALUNO estiver contido na disciplina, restrinja a deleção
 );
 
 
@@ -38,7 +38,7 @@ CREATE TABLE questao (
     ID_Questao SERIAL NOT NULL PRIMARY KEY,
     Texto_Questao text NOT NULL,
     Peso int NOT NULL DEFAULT 1,
-    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) -- Chave Estrangeira
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE -- Chave Estrangeira/ Caso a DISCIPLINA seja deletada, então todas QUESTÕES referentes também serão deletadas.
 );
 
 
@@ -48,31 +48,64 @@ CREATE TYPE Eh_Correta_t AS ENUM('Sim', 'Nao');
 --* Tabela Alternativa
 CREATE TABLE alternativa (
     ID_Alternativa SERIAL NOT NULL,
+    ID_Questao int NOT NULL REFERENCES questao(ID_Questao) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira/ Sempre que uma QUESTÃO for deletada todas as ALTERNATIVAS referentes serão deletadas.
     Texto_Alternativa text NOT NULL,
     Eh_Correta Eh_Correta_t,
-    ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
     PRIMARY KEY (ID_Alternativa, ID_Questao)
 );
 
 
 --* Tabela Responde
 CREATE TABLE responde (
-    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno),  -- Chave Estrangeira
-    ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
-    Opcao Eh_Correta_t,
-    PRIMARY KEY (RA_Aluno, ID_Questao)
-);
-
-
---! Verificar
-CREATE TABLE responde (
-    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno),  -- Chave Estrangeira
-    ID_Questao int NOT NULL REFERENCES questao(ID_Questao),  -- Chave Estrangeira
-    Opcao int NOT NULL REFERENCES alternativa(ID_Alternativa), -- Chave Estrangeira
+    RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
+    ID_Questao int NOT NULL REFERENCES questao(ID_Questao) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
+    Opcao int NOT NULL REFERENCES alternativa(ID_Alternativa) ON DELETE CASCADE ON UPDATE CASCADE, -- Chave Estrangeira
     PRIMARY KEY (RA_Aluno, ID_Questao)
 );
 
 
 
---* Criação das Triggers
+-- ================================================================= Criação das Triggers ==============================================================
 
+-- Para deletar:
+-- DROP FUNCTION Nome_Funcao() CASCADE;
+
+--* Atualiza o número de ALUNOS a cada ALUNO inserido ou deletado da tabela ALUNO_DISCIPLINA.
+CREATE FUNCTION atualizar_nAlunos() RETURNS TRIGGER AS $atualizar_nAlunos$
+    BEGIN
+        IF (TG_OP = 'INSERT') THEN
+            UPDATE disciplina SET Numero_Alunos = (Numero_Alunos + 1) WHERE disciplina.Codigo_Disciplina = NEW.Codigo_Disciplina; 
+			RETURN NEW;
+        ELSIF (TG_OP = 'DELETE') THEN
+            UPDATE disciplina SET Numero_Alunos = (Numero_Alunos - 1) WHERE disciplina.Codigo_Disciplina = OLD.Codigo_Disciplina; 
+			RETURN OLD;
+        END IF;
+    END;
+$atualizar_nAlunos$ LANGUAGE plpgsql;
+
+-- Cria a trigger
+CREATE TRIGGER atualizar_nAlunos 
+AFTER DELETE OR INSERT 
+ON aluno_disciplina
+FOR EACH ROW EXECUTE PROCEDURE atualizar_nAlunos();
+
+
+
+--* Atualiza o número de QUESTOES a cada QUESTAO inserida ou deletada da tabela QUESTAO.
+CREATE FUNCTION atualizar_nQuestoes() RETURNS TRIGGER AS $atualizar_nQuestoes$
+    BEGIN
+        IF (TG_OP = 'INSERT') THEN
+            UPDATE disciplina SET Numero_Questoes = (Numero_Questoes + 1) WHERE disciplina.Codigo_Disciplina = NEW.Codigo_Disciplina; 
+			RETURN NEW;
+        ELSIF (TG_OP = 'DELETE') THEN
+            UPDATE disciplina SET Numero_Questoes = (Numero_Questoes - 1) WHERE disciplina.Codigo_Disciplina = OLD.Codigo_Disciplina; 
+			RETURN OLD;
+        END IF;
+    END;
+$atualizar_nQuestoes$ LANGUAGE plpgsql;
+
+-- Cria a trigger
+CREATE TRIGGER atualizar_nQuestoes 
+AFTER DELETE OR INSERT 
+ON questao
+FOR EACH ROW EXECUTE PROCEDURE atualizar_nQuestoes();
