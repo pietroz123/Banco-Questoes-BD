@@ -176,11 +176,11 @@ INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('tê
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('hardware.', 'Nao', 45);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('servidor.', 'Nao', 45);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('aplicação.', 'Nao', 45);
-INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('desktop.', 'Nao', 45);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('desktop.', 'Sim', 45);
 
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('espera para o estado de pronto.', 'Nao', 46);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('bloqueado para o estado de pronto.', 'Nao', 46);
-INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('pronto para o estado de execução.', 'Nao', 46);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('pronto para o estado de execução.', 'Sim', 46);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('bloqueado para o estado de execução.', 'Nao', 46);
 
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('o acesso direto à memória e a reentrância.', 'Nao', 47);

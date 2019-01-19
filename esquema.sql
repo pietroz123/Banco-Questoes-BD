@@ -25,23 +25,20 @@ CREATE TABLE aluno (
     Pontuacao int NOT NULL DEFAULT 0
 );
 
-
 --* Tabela Aluno_Disciplina
 CREATE TABLE aluno_disciplina (
     RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE, -- Chave Estrangeira / Caso o ALUNO seja deletado, então a linha que relaciona este ALUNO a  DISCIPLINA também deixa de existir, ou seja, o ALUNO não está mais inscrito na DISCIPLINA.
     Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE, -- Chave Estrangeira / Caso uma DISCIPLINA seja deletada, se um ALUNO estiver contido na disciplina, restrinja a deleção
-    PRIMARY KEY (RA_Aluno, Codigo_Disciplina) --?
+    PRIMARY KEY (RA_Aluno, Codigo_Disciplina)
 );
-
 
 --* Tabela Questão
 CREATE TABLE questao (
     ID_Questao SERIAL NOT NULL PRIMARY KEY,
     Texto_Questao text NOT NULL,
-    Peso int NOT NULL DEFAULT 1 CHECK (Peso = 1), --?
+    Peso int NOT NULL DEFAULT 1 CHECK (Peso = 1),
     Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE -- Chave Estrangeira/ Caso a DISCIPLINA seja deletada, então todas QUESTÕES referentes também serão deletadas.
 );
-
 
 --* Enum para Sim e Não
 CREATE TYPE Eh_Correta_t AS ENUM('Sim', 'Nao');
@@ -55,7 +52,6 @@ CREATE TABLE alternativa (
     PRIMARY KEY (ID_Alternativa, ID_Questao)
 );
 
-
 --* Tabela Responde
 CREATE TABLE responde (
     RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
@@ -64,8 +60,6 @@ CREATE TABLE responde (
     Opcao int NOT NULL,
     PRIMARY KEY (RA_Aluno, ID_Questao)
 );
-
-
 
 -- ================================================================= Criação das Triggers ==============================================================
 
