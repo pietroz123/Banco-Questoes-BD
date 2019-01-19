@@ -522,7 +522,72 @@ Obtidas todas as relações e verificadas as normalizações, foi possível obte
 
 \section{Projeto Físico}
 
+O projeto físico corresponde à implementação em si do Banco de Dados Relacional. Os comandos foram criados à partir da linguagem SQL, através do Sistema de Gerenciamento de Banco de Dados (SGBD) PostgreSQL. Os scripts de criação do banco de dados se encontram anexados no arquivo \textit{esquema.sql}, e os de inserção se encontram anexados no arquivo \textit{dados.sql};
 
+\subsection{Políticas de Restrição de Integridade}
 
+Para a tabela \texttt{Disciplina}, temos as seguintes restrições de integridade:
+
+\begin{itemize}
+    \item {\texttt{Codigo\_Disciplina}}: NOT NULL e PRIMARY KEY
+    \item {\texttt{Nome\_Disciplina}}: NOT NULL
+    \item {\texttt{Nome\_Professor}}: NOT NULL
+    \item {\texttt{Departamento}}: NOT NULL
+    \item {\texttt{Numero\_Questoes}}: NOT NULL e DEFAULT 0
+    \item {\texttt{Numero\_Alunos}}: NOT NULL, DEFAULT 0 e CHECK (Numero\_Alunos <= 20) 
+\end{itemize}
+
+Para a tabela \texttt{Aluno}, temos as seguintes restrições de integridade:
+
+\begin{itemize}
+    \item {\texttt{RA\_Aluno}}: NOT NULL e PRIMARY KEY
+    \item {\texttt{Nome\_Aluno}}: NOT NULL
+    \item \texttt{CPF}: NOT NULL e UNIQUE
+    \item \texttt{Email\_Aluno}: NOT NULL e UNIQUE
+    \item \texttt{Tel\_Celular}: NOT NULL
+    \item \texttt{Tel\_Residencial}:
+    \item \texttt{Total\_Respondidas}: NOT NULL e DEFAULT 0
+    \item \texttt{Tel\_Pontuacao}: NOT NULL e DEFAULT 0
+\end{itemize}
+
+Para a tabela \texttt{Aluno\_Disciplina}, temos as seguintes restrições de integridade:
+
+\begin{itemize}
+    \item {\texttt{RA\_Aluno}}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
+    \item {\texttt{Codigo\_Disciplina}}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
+\end{itemize}
+
+Para a tabela \texttt{Questao}, temos as seguintes restrições de integridade:
+
+\begin{itemize}
+    \item \texttt{ID\_Questão}: NOT NULL e PRIMARY KEY
+    \item \texttt{Texto\_Questão}: NOT NULL
+    \item \texttt{Peso}: NOT NULL, DEFAULT 1 e CHECK (Peso = 1)
+    \item \texttt{Codigo\_Disciplina}: NOT NULL, FOREIGN KEY, ON DELETE RESTRICT e ON UPDATE CASCADE
+\end{itemize}
+
+Para a tabela \texttt{Alternativa}, temos as seguintes restrições de integridade:
+
+\begin{itemize}
+    \item \texttt{ID\_Alternativa}: NOT NULL e PRIMARY KEY
+    \item \texttt{ID\_Questao}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
+    \item \texttt{Texto\_Alternativa}: NOT NULL
+    \item \texttt{Eh\_Correta}: 'Sim' ou 'Nao'
+\end{itemize}
+
+Para a tabela \texttt{Responde}, temos as seguintes restrições de integridade:
+
+\begin{itemize}
+    \item \texttt{ID\_Alternativa}: NOT NULL e PRIMARY KEY
+    \item \texttt{ID\_Questao}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
+    \item \texttt{Texto\_Alternativa}: NOT NULL
+    \item \texttt{Eh\_Correta}: 'Sim' ou 'Nao'
+\end{itemize}
+
+\begin{itemize}
+    \item \texttt{RA\_Aluno}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
+    \item \texttt{ID\_Questao}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
+    \item \texttt{Opcao}: NOT NULL
+\end{itemize}
 
 \end{document}
