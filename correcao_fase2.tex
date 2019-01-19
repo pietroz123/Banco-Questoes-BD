@@ -30,7 +30,6 @@ PROJETO PRÁTICO - FASE INTERMEDIÁRIA I/II\\\vspace{0.5cm}
 TEMA 12 - Banco de Questões de Disciplinas\\\vspace{4.0cm}
 Bianca Gomes Rodrigues\\
 Pietro Zuntini Bonfim\\
-Jesimiel Efraim Dias\\
 \\\vspace{4cm}
 Sorocaba-SP\\2018}
 
@@ -78,15 +77,15 @@ Nesta subseção serão descritos todos os tipos-entidade, junto com os atributo
     \texttt{DISCIPLINA}
 \end{center}
 
-\hspace{6}O tipo-entidade {\texttt{Disciplina}} é um objeto de existência conceitual e contém os atributos: {\texttt{CodigoDisciplina}}, {\texttt{Nome\_Disciplina}}, {\texttt{Departamento}} e {\texttt{Nome\_Professor}}. O atributo {\texttt{CodigoDisciplina}} é único e identifica o tipo-entidade. Também podemos identificar a disciplina pelo atributo {\texttt{Nome\_Disciplina}}, entretanto este não é garantidamente único, podem existir disciplinas com o mesmo nome, lecionadas por diferentes professores.\\
+\hspace{6}O tipo-entidade {\texttt{Disciplina}} é um objeto de existência conceitual e contém os atributos: {\texttt{Codigo\_Disciplina}}, {\texttt{Nome\_Disciplina}}, {\texttt{Departamento}} e {\texttt{Nome\_Professor}}. O atributo {\texttt{Codigo\_Disciplina}} é único e identifica o tipo-entidade. Também podemos identificar a disciplina pelo atributo {\texttt{Nome\_Disciplina}}, entretanto este não é garantidamente único, podem existir disciplinas com o mesmo nome, lecionadas por diferentes professores.\\
 
 O atributo {\texttt{Departamento}} é utilizado para armazenar o nome do departamento em que determinada \texttt{Disciplina} é lecionada. O nome de quem leciona determinada \texttt{Disciplina} é armazenado pelo atributo {\texttt{Nome\_Professor}}. Abaixo será possível identificar as especificidades de cada atributo. \\
 
 \begin{itemize}
-    \item {\texttt{CodigoDisciplina}}: valor inteiro, auto incremental, chave primária, restrição obrigatório
-    \item {\texttt{Nome\_Disciplina}}: string de 256 caracteres, restrição obrigatório
-    \item {\texttt{Nome\_Professor}}: string de 256 caracteres, restrição obrigatório
-    \item {\texttt{Departamento}}: string de 256 caracteres, restrição obrigatório
+    \item {\texttt{Codigo\_Disciplina}}: valor inteiro, auto incremental, chave primária, restrição obrigatório
+    \item {\texttt{Nome\_Disciplina}}: string de 255 caracteres, restrição obrigatório
+    \item {\texttt{Nome\_Professor}}: string de 255 caracteres, restrição obrigatório
+    \item {\texttt{Departamento}}: string de 255 caracteres, restrição obrigatório
 \end{itemize}
 
 \vspace{0.5cm}
@@ -94,17 +93,17 @@ O atributo {\texttt{Departamento}} é utilizado para armazenar o nome do departa
     \texttt{ALUNO}
 \end{center}
 
-O tipo-entidade {\texttt{Aluno}} é um objeto de existência física e contém os atributos: {\texttt{RA}}, {\texttt{Nome\_Aluno}}, {\texttt{CPF}}, {\texttt{E-mail}}, {\texttt{Tel\_Celular} e \texttt{Tel\_Residencial}}. O atributo {\texttt{RA}} é único e identifica o tipo-entidade. É importante ressaltar este identificador é o RA do aluno. Também é possível utilizar o atributo {\texttt{Nome\_Aluno}} para encontrar determinado aluno, entretanto este não é um identificador único, visto que pode existir mais de um aluno com o mesmo nome.\\
+O tipo-entidade {\texttt{Aluno}} é um objeto de existência física e contém os atributos: {\texttt{RA\_Aluno}}, {\texttt{Nome\_Aluno}}, {\texttt{CPF}}, {\texttt{Email\_Aluno}}, {\texttt{Tel\_Celular} e \texttt{Tel\_Residencial}}. O atributo {\texttt{RA\_Aluno}} é único e identifica o tipo-entidade. É importante ressaltar este identificador é o RA\_Aluno do aluno. Também é possível utilizar o atributo {\texttt{Nome\_Aluno}} para encontrar determinado aluno, entretanto este não é um identificador único, visto que pode existir mais de um aluno com o mesmo nome.\\
 
-O atributo {\texttt{CPF}} também é único, todavia neste caso não é utilizado para identificar um \texttt{Aluno}. Os atributos {\texttt{E-mail}}, {\texttt{Tel\_Celular} e \texttt{Tel\_Residencial}} servem para armazenar informações de contato sobre determinado \texttt{Aluno}. Abaixo será possível identificar as especificidades de cada atributo.\\
+O atributo {\texttt{CPF}} também é único, todavia neste caso não é utilizado para identificar um \texttt{Aluno}. Os atributos {\texttt{Email\_Aluno}}, {\texttt{Tel\_Celular} e \texttt{Tel\_Residencial}} servem para armazenar informações de contato sobre determinado \texttt{Aluno}. Abaixo será possível identificar as especificidades de cada atributo.\\
 
 \begin{itemize}
-    \item {\texttt{RA}}: valor inteiro, auto incremental, chave primária, restrição obrigatório
-    \item {\texttt{Nome\_Aluno}}: string de 256 caracteres, restrição obrigatório
-    \item \texttt{CPF}: string de 14 caracteres, restrição obrigatório
-    \item \texttt{E-mail}: string de 50 caracteres, restrição obrigatório
+    \item {\texttt{RA\_Aluno}}: valor inteiro, chave primária, restrição obrigatório
+    \item {\texttt{Nome\_Aluno}}: string de 255 caracteres, restrição obrigatório
+    \item \texttt{CPF}: string de 14 caracteres, restrição obrigatório e único
+    \item \texttt{Email\_Aluno}: string de 50 caracteres, restrição obrigatório e único
     \item \texttt{Tel\_Celular}: string de 15 caracteres, restrição obrigatório
-    \item \texttt{Tel\_Residencial}: string de 15 caracteres
+    \item \texttt{Tel\_Residencial}: string de 14 caracteres
 \end{itemize}
 
 \vspace{0.5cm}
@@ -115,8 +114,8 @@ O atributo {\texttt{CPF}} também é único, todavia neste caso não é utilizad
 O tipo-entidade \texttt{Questão} é um objeto de existência conceitual e contém os atributos: \texttt{ID\_Questão},  \texttt{Texto\_Questão} e \texttt{Peso}. O atributo \texttt{ID\_Questão} é único e identifica o tipo-entidade. Já o atributo \texttt{Texto\_Questão} contém o texto da questão que será apresentada ao aluno. Por último, o atributo \texttt{Peso} serve para mostrar o quanto vale cada questão e para o auxiliar no cálculo da pontuação do \texttt{Aluno}. Neste projeto, o Peso sempre será 1, ou seja, cada questão sempre valerá 1 ponto. Abaixo será possível identificar as especificidades de cada atributo.\\
 
 \begin{itemize}
-    \item \texttt{ID\_Questão}: valor inteiro, auto incremental, chave primária, restrição obrigatório
-    \item \texttt{Texto\_Questão}: string de 1000 caracteres, restrição obrigatório
+    \item \texttt{ID\_Questão}: valor inteiro, serial, chave primária, restrição obrigatório
+    \item \texttt{Texto\_Questão}: texto, restrição obrigatório
     \item \texttt{Peso}: valor inteiro, restrição obrigatório
 \end{itemize}
 
@@ -127,17 +126,17 @@ O tipo-entidade \texttt{Questão} é um objeto de existência conceitual e cont�
 
 O tipo-entidade \texttt{Alternativa} é um objeto de existência conceitual, além de ser um tipo-entidade fraca, logo, sua existência depende de sua participação no tipo-relacionamento com o tipo-entidade \texttt{Questão} . O tipo-entidade \texttt{Alternativa} contém os atributos: \texttt{ID\_Alternativa}, \texttt{Texto\_Alternativa} e \texttt{Eh\_Correta}. O atributo \texttt{ID\_Alternativa} é uma chave parcial e identifica o tipo-entidade em conjunto com o atributo \texttt{ID\_Questão} do tipo-entidade \texttt{Questão}, visto que se trata de um tipo-entidade fraca. O atributo \texttt{Texto\_Alternativa}, por sua vez, é responsável por armazenar o texto da alternativa, ou seja, uma possível resposta.\\
 
-O atributo \texttt{Eh\_Correta} é responsável por identificar se determinada alternativa está correta ou não. Uma alternativa precisa corresponder a uma determinada \texttt{Questão}, e apenas uma alternativa é correta dentre as alternativas de uma questão. Abaixo será possível identificar as especificidades de cada atributo. \\
+O atributo \texttt{Eh\_Correta} é responsável por identificar se determinada alternativa está correta ou não. Uma alternativa precisa corresponder a uma determinada \texttt{Questão}, e apenas uma alternativa é correta dentre as alternativas de uma questão. Neste projeto, todas as questões possuem apenas quatro alternativas. Abaixo será possível identificar as especificidades de cada atributo. \\
 
 \begin{itemize}
-    \item \texttt{ID\_Alternativa}: valor inteiro, auto incremental, chave parcial (ID\_Questão e ID\_Alternativa), restrição obrigatório
-    \item \texttt{Texto\_Alternativa}: string de 500 caracteres, restrição obrigatório
-    \item \texttt{Eh\_Correta}: tupla ('Não', 'Sim'), restrição obrigatório, padrão 'Não'
+    \item \texttt{ID\_Alternativa}: valor inteiro, serial, chave parcial (ID\_Questão e ID\_Alternativa), restrição obrigatório
+    \item \texttt{Texto\_Alternativa}: texto, restrição obrigatório
+    \item \texttt{Eh\_Correta}: tupla ('Não', 'Sim'), restrição obrigatório
 \end{itemize}
 
 \subsection{Atributos Calculados}
 
-O atributo {\texttt{Total\_Respondidas}} é um atributo calculado e corresponde ao número total de questões respondidas pelo aluno. O atributo {\texttt{Pontuação}} também calculado e é obtido a cada questão que o aluno responde corretamente. É importante ressaltar que um aluno não perde pontos caso responda incorretamente determinada questão. Este atributo pode ajudar tanto o aluno, quanto o professor, através dele ambos podem acompanhar o nível de aprendizado.\\
+O atributo {\texttt{Total\_Respondidas}} é um atributo calculado e corresponde ao número total de questões respondidas pelo aluno. O atributo {\texttt{Pontuação}} também calculado e é obtido a cada questão que o aluno responde corretamente. É importante ressaltar que um aluno não perde pontos caso responda incorretamente determinada questão. Este atributo pode ajudar tanto o aluno, quanto o professor, através dele ambos podem acompanhar o nível de aprendizado. Ambos estes atributos são gerados pelo tipo-relacionamento \texttt{ALUNO responde QUESTÃO}.\\
 
 O atributo \texttt{Número\_Questões} é gerado através do tipo-relacionamento \texttt{DISCIPLINA possui QUESTÃO} e é responsável por armazenar o número de Questões existentes em uma determinada \texttt{Disciplina}. Por último, o atributo \texttt{Numero\_Alunos} é gerado pelo tipo-relacionamento \texttt{DISCIPLINA inscreve ALUNO} e é responsável por armazenar o número de \texttt{Alunos} existentes em uma determinada \texttt{Disciplina}.\\
 
@@ -148,9 +147,9 @@ O atributo \texttt{Número\_Questões} é gerado através do tipo-relacionamento
     \texttt{{ALUNO \texttt{responde} QUESTÃO}}
 \end{center}
 
-O tipo-entidade {\texttt{Aluno}} é responsável por responder questões do tipo-entidade \texttt{Questão}. Logo, o papel do tipo-relacionamento estabelecido entre eles é representado por responde. O tipo-relacionamento tem cardinalidade 1:N, visto que um \texttt{Aluno} pode responder N Questões, e uma Questão é respondida por 1 \texttt{Aluno}.\\
+O tipo-entidade {\texttt{Aluno}} é responsável por responder questões do tipo-entidade \texttt{Questão}. Logo, o papel do tipo-relacionamento estabelecido entre eles é representado por responde. O tipo-relacionamento tem cardinalidade N:M, visto que um \texttt{Aluno} pode responder N Questões, e uma Questão é respondida por M \texttt{Alunos}.\\
 
-O tipo-relacionamento \texttt{{ALUNO responde QUESTÃO}} possui os atributos \texttt{Opção} e \texttt{ID\_Resposta}. O atributo \texttt{Opção} é responsável por armazenar qual foi a Opção respondida pelo \texttt{Aluno}, enquanto o \texttt{ID\_Resposta} identifica a resposta do \texttt{Aluno}.
+O tipo-relacionamento \texttt{{ALUNO responde QUESTÃO}} possui o atributo \texttt{Opção}, além dos atributos calculados \texttt{Total\_Respondidas} e \texttt{Pontuação}. O atributo \texttt{Opção} é responsável por armazenar qual foi a Opção respondida pelo \texttt{Aluno}.
 
 \begin{center}
 \centering
@@ -166,7 +165,7 @@ O tipo-relacionamento \texttt{{ALUNO responde QUESTÃO}} possui os atributos \te
     \texttt{DISCIPLINA \texttt{inscreve} ALUNO}
 \end{center}
 
-O papel do tipo-relacionamento entre os tipo-entidades \texttt{Disciplina} e {\texttt{Aluno}} é representado por inscreve, visto que em uma \texttt{Disciplina}, N \texttt{Alunos} podem se inscrever.  Deste modo, podemos concluir que a cardinalidade deste tipo-relacionamento é 1:N.\\
+O papel do tipo-relacionamento entre os tipo-entidades \texttt{Disciplina} e {\texttt{Aluno}} é representado por inscreve, visto que N \texttt{Alunos} podem se inscrever em uma \texttt{Disciplina}, e um \texttt{Aluno} pode estar inscrito em M \texttt{Disciplinas}. Deste modo, podemos concluir que a cardinalidade deste tipo-relacionamento é 1:N. Além disso, este tipo-relacionamento possui o atributo calculado {\texttt{Numero\_Alunos}}.\\
 
 A existência do tipo-entidade \texttt{Disciplina} depende de sua participação em um tipo-relacionamento com o do tipo-entidade  {\texttt{Aluno}}. Logo, se trata de uma restrição de participação total, uma \texttt{Disciplina} existirá apenas caso hajam \texttt{Alunos} inscritos.\\
 
@@ -185,7 +184,7 @@ A existência do tipo-entidade \texttt{Disciplina} depende de sua participação
     \texttt{DISCIPLINA \texttt{possui} QUESTÃO}
 \end{center}
 
-O papel do tipo-relacionamento entre os tipo-entidades \texttt{Disciplina} e \texttt{Questão} é representado por possui, visto que uma \texttt{Disciplina}, pode possuir N Questões. Do mesmo modo, uma Questão possui uma \texttt{Disciplina}. Deste modo, podemos concluir que a cardinalidade deste tipo-relacionamento é 1:N.\\
+O papel do tipo-relacionamento entre os tipo-entidades \texttt{Disciplina} e \texttt{Questão} é representado por possui, visto que uma \texttt{Disciplina}, pode possuir N Questões, e uma QUESTÃO pertence apenas a uma DISCIPLINA. Deste modo, podemos concluir que a cardinalidade deste tipo-relacionamento é 1:N. Além disso, este é o tipo-relacionamento que possui o atributo calculado \texttt{Numero\_Questoes}.\\
 
 \begin{center}
 \begin{figure}[h]
@@ -200,7 +199,7 @@ O papel do tipo-relacionamento entre os tipo-entidades \texttt{Disciplina} e \te
     \texttt{QUESTÃO \texttt{possui} ALTERNATIVA}
 \end{center}
 
-O tipo-relacionamento entre os tipo-entidades \texttt{Questão} e \texttt{Alternativa} é representado por possui, visto que uma Questão possui N Alternativas. Do mesmo modo, N Alternativas pertencem à uma Questão. Logo, concluímos que a cardinalidade do tipo-relacionamento é 1:N.\\
+O tipo-relacionamento entre os tipo-entidades \texttt{Questão} e \texttt{Alternativa} é representado por possui, visto que uma Questão possui N Alternativas. Do mesmo modo, N Alternativas pertencem à uma Questão. Logo, concluímos que a cardinalidade do tipo-relacionamento é 1:N. Ressaltando, neste projeto N sempre será igual a quatro.\\
 
 A existência do tipo-entidade \texttt{Questão} depende de sua participação em um tipo-relacionamento com o do tipo-entidade  {\texttt{Alternativa}}. Logo, se trata de uma restrição de participação total, só existe se uma Questão possuir Alternativa(s).\\
 
@@ -217,6 +216,8 @@ O tipo-entidade \texttt{Alternativa} é fraco, logo sua existência depende de s
 
 \pagebreak
 \subsection{Requisitos de Dados}
+
+Os Requisitos de Dados representam as consultas, inserções, modificações, remoções, agregações que o projeto deve ser capaz de executar. A seguir será possível visualizar alguns exemplos:
 
 \vspace{0.5cm}
 \begin{center}
@@ -236,29 +237,29 @@ O tipo-entidade \texttt{Alternativa} é fraco, logo sua existência depende de s
 \begin{enumerate}
     \item O sistema deve permitir a busca de um Aluno pertencente à uma \texttt{Disciplina}
         \begin{itemize}
-            \item Atributo(s) de visualização do resultado: {\texttt{RA}}, {\texttt{Nome\_Aluno}}
-            \item Atributo(s) de busca (ou de condições/filtros): {\texttt{RA}} ou {\texttt{Nome\_Aluno}}, \texttt{CodigoDisciplina}
+            \item Atributo(s) de visualização do resultado: {\texttt{RA\_Aluno}}, {\texttt{Nome\_Aluno}}
+            \item Atributo(s) de busca (ou de condições/filtros): {\texttt{RA\_Aluno}} ou {\texttt{Nome\_Aluno}}, \texttt{Codigo\_Disciplina}
         \end{itemize}
     \item O sistema deve permitir busca de Questões a partir de uma palavra chave
         \begin{itemize}
-            \item Atributo(s) de visualização do resultado: \texttt{ID\_Questão}, \texttt{Texto\_Questão}, \texttt{CodigoDisciplina}
+            \item Atributo(s) de visualização do resultado: \texttt{ID\_Questão}, \texttt{Texto\_Questão}, \texttt{Codigo\_Disciplina}
             \item Atributo(s) de busca (ou de condições/filtros): palavra chave ('\%palavra-chave\%')
         \end{itemize}
     \item O sistema deve permitir busca de Questões de uma determinada \texttt{Disciplina}
         \begin{itemize}
             \item Atributo(s) de visualização do resultado: \texttt{ID\_Questão}, \texttt{Texto\_Questão}
-            \item Atributo(s) de busca (ou de condições/filtros): \texttt{CodigoDisciplina}
+            \item Atributo(s) de busca (ou de condições/filtros): \texttt{Codigo\_Disciplina}
         \end{itemize}
     \item O sistema deve permitir busca de uma \texttt{Disciplina} à partir de seu código 
         \begin{itemize}
             \item Atributo(s) de visualização do resultado: atributos da \texttt{Disciplina} encontrada
-            \item Atributo(s) de busca (ou de condições/filtros): \texttt{CodigoDisciplina}
+            \item Atributo(s) de busca (ou de condições/filtros): \texttt{Codigo\_Disciplina}
         \end{itemize}
     % CÁLCULOS
     \item O sistema deve permitir o cálculo do número de \texttt{Alunos} inscritos por \texttt{Disciplina}
         \begin{itemize}
             \item Atributo(s) de visualização do resultado: número de alunos
-            \item Atributo(s) de cálculo: \texttt{CodigoDisciplina}
+            \item Atributo(s) de cálculo: \texttt{Codigo\_Disciplina}
         \end{itemize}
     \item O sistema deve permitir o cálculo do número de Questões respondidas por um Aluno
         \begin{itemize}
@@ -299,8 +300,7 @@ O tipo-entidade \texttt{Alternativa} é fraco, logo sua existência depende de s
 \pagebreak
 
 \subsection{Tabelas de Metadados}
-A tabela de metadados contém basicamente um resumo de cada tipo-entidade, com seu nome e atributos, junto com o tipo e restrição de cada atributo. Já o MER é um diagrama que apresenta todos os tipos-entidade e todos os tipos-relacionamento, junto com os atributos de cada tipo-entidade (identificados como simples, chave primária ou chave parcial), e as cardinalidades de cada tipo-relacionamento.
-
+A tabela de metadados contém basicamente um resumo de cada tipo-entidade, com seu nome e atributos, junto com o tipo e restrição de cada atributo.
 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
 \begin{table}[h]
@@ -310,13 +310,13 @@ A tabela de metadados contém basicamente um resumo de cada tipo-entidade, com s
     \toprule\hline
     \multicolumn{2}{|c|}{\textbf{Tipo-Entidade}} & \textbf{Atributo} & \textbf{Tipo} & \textbf{Restrição} \\\hline
     \midrule
-    \multicolumn{2}{|c|}{\texttt{Aluno}} & \texttt{RA} & Identificador & Obrigatório \\
+    \multicolumn{2}{|c|}{\texttt{Aluno}} & \texttt{RA\_Aluno} & Identificador & Obrigatório \\
     \midrule
     \multicolumn{2}{|c|}{} & \texttt{Nome\_Aluno} & Monovalorado & Obrigatório \\
     \midrule
-    \multicolumn{2}{|c|}{} & \texttt{CPF}   & Monovalorado & Obrigatório \\
+    \multicolumn{2}{|c|}{} & \texttt{CPF}   & Monovalorado & Obrigatório e Único \\
     \midrule
-    \multicolumn{2}{|c|}{} & \texttt{E-mail} & Monovalorado & Obrigatório \\
+    \multicolumn{2}{|c|}{} & \texttt{Email\_Aluno} & Monovalorado & Obrigatório e Único \\
     \midrule
     \multicolumn{2}{|c|}{} & \texttt{Tel\_Celular} & Monovalorado & Obrigatório \\
     \midrule
@@ -334,7 +334,7 @@ A tabela de metadados contém basicamente um resumo de cada tipo-entidade, com s
     \toprule\hline
     \multicolumn{2}{|c|}{\textbf{Tipo-Entidade}} & \textbf{Atributo} & \textbf{Tipo} & \textbf{Restrição} \\\hline
     \midrule
-    \multicolumn{2}{|c|}{\multirow{\texttt{Disciplina}}} & \texttt{CodigoDisciplina} & Identificador & Obrigatório \\
+    \multicolumn{2}{|c|}{\multirow{\texttt{Disciplina}}} & \texttt{Codigo\_Disciplina} & Identificador & Obrigatório \\
     \multicolumn{2}{|c|}{} & \texttt{Nome\_Disciplina} & Monovalorado & Obrigatório \\
     \multicolumn{2}{|c|}{} & \texttt{Nome\_Professor} & Monovalorado & Obrigatório \\
     \multicolumn{2}{|c|}{} & \texttt{Departamento} & Monovalorado & Obrigatório \\
@@ -355,7 +355,7 @@ A tabela de metadados contém basicamente um resumo de cada tipo-entidade, com s
     \midrule
     \multicolumn{2}{|c|}{} & \texttt{Texto\_Questao} & Monovalorado & Obrigatório \\
     \midrule
-    \multicolumn{2}{|c|}{} & \texttt{Peso} & Monovalorado & Obrigatório \\
+    \multicolumn{2}{|c|}{} & \texttt{Peso} & Monovalorado & Obrigatório, Peso = 1 \\
     \midrule
     \bottomrule\hline
     \end{tabular}%
@@ -391,14 +391,14 @@ O projeto lógico consiste no mapeamento do esquema desenvolvido na seção \tex
 Inicialmente os tipo-entidade forte \texttt{Questão}, \texttt{Disciplina} e \texttt{Aluno} foram mapeados. Para isso utilizamos n colunas, uma para cada atributo. Por conseguinte, foram obtidas as seguintes relações:
 
 \begin{Verbatim}[commandchars=+\[\]]
-    Questao (+underline[id_questao], texto_questao, peso_questao)
+    Questao (+underline[id_questao], texto_questao, peso)
 \end{Verbatim}
 \begin{Verbatim}[commandchars=+\[\]]
     Disciplina (+underline[codigo_disciplina], nome_disciplina,
-    departamento_disciplina, professor_disciplina)
+    departamento, nome_professor)
 \end{Verbatim}
 \begin{Verbatim}[commandchars=+\[\]]
-    Aluno (+underline[ra_aluno], cpf_aluno, nome_aluno, email_aluno,
+    Aluno (+underline[ra_aluno], cpf, nome_aluno, email_aluno,
     tel_residencial, tel_celular)
 \end{Verbatim}
 
@@ -410,62 +410,83 @@ Em seguida, o tipo-entidade fraca \texttt{Alternativa} foi mapeado, criando uma 
         id_questao referencia Questao
 \end{Verbatim}
 
-Por fim, foram mapeados os tipos-relacionamento, que no caso são todos 1:n.\\
+Em seguida, foram mapeados os tipos-relacionamento 1:n.
+
 Para o relacionamento \texttt{DISCIPLINA possui QUESTÃO}, foi utilizada a técnica de adição de coluna, criando um atributo no lado n, atualizando o mapeamento da \texttt{Questão}:
 
 \begin{Verbatim}[commandchars=+\[\]]
-    Questao (+underline[id_questao], texto_questao, peso_questao,
+    Questao (+underline[id_questao], texto_questao, peso,
     codigo_disciplina)
         codigo_disciplina referencia Disciplina
 \end{Verbatim}
+
+Além disso, foi inserido o atributo calculado Numero\_Questoes, atualizando o mapeamento da \texttt{Disciplina}:
+
+\begin{Verbatim}[commandchars=+\[\]]
+    Disciplina (+underline[codigo_disciplina], nome_disciplina,
+    departamento, nome_professor, numero_questoes)
+\end{Verbatim}
+
+Para tipo-relacionamento \texttt{QUESTÃO possui ALTERNATIVA}, mapeamos novamente através da técnica de adição de coluna, criando um atributo do lado n. Entretanto, se trata de uma entidade fraca, logo, a relação permaneceu igual:
+
+\begin{Verbatim}[commandchars=+\[\]]
+    Alternativa (+underline[id_questao], +underline[id_alternativa], texto_alternativa, 
+    eh_correta)
+        id_questao referencia Questao
+\end{Verbatim}
+
+Por fim, foram mapeados os tipos-relacionamento n:m.
 
 Para o tipo-relacionamento \texttt{ALUNO responde QUESTÃO}, foi utilizada a técnica de criação de uma tabela própria, obtendo a seguinte relação:
 
 \begin{Verbatim}[commandchars=+\[\]]
-    Responde (+underline[ra_aluno], +underline[id_questao], +underline[id_resposta], opcao_aluno)
+    Responde (+underline[ra_aluno], +underline[id_questao], opcao)
         ra_aluno referencia Aluno
         id_questao referencia Questao
 \end{Verbatim}
 
-Para o tipo-relacionamento \texttt{DISCIPLINA inscreve ALUNO}, foi utilizada a técnica de adição de coluna, criando um atributo no lado n, atualizando o mapeamento da \texttt{Aluno}:
+Além disso, foram inseridos os atributos calculados Total\_Respondidas e Pontuacao, atualizando o mapeamento do \texttt{Aluno}:
 
 \begin{Verbatim}[commandchars=+\[\]]
-    Aluno (+underline[ra_aluno], cpf_aluno, nome_aluno, email_aluno,
-    tel_residencial, tel_celular, codigo_disciplina)
+    Aluno (+underline[ra_aluno], cpf, nome_aluno, email_aluno, 
+    tel_residencial, tel_celular, total_respondidas, pontuacao)
+\end{Verbatim}
+
+Para o tipo-relacionamento \texttt{DISCIPLINA inscreve ALUNO}, foi utilizada a técnica de criação de tabela própria, obtendo a seguinte relação:
+
+\begin{Verbatim}[commandchars=+\[\]]
+    Aluno_Disciplina (+underline[ra_aluno], +underline[codigo_disciplina])
+        ra_aluno referencia Aluno
         codigo_disciplina referencia Disciplina
 \end{Verbatim}
 
-Por fim, foi mapeado o tipo-relacionamento \texttt{QUESTÃO possui ALTERNATIVA}, através novamente da técnica de adição de coluna, criando um atributo do lado n. Entretanto, se trata de uma entidade fraca, logo, a relação permaneceu igual:
+Além disso, foi inserido o atributo calculado Numero\_Alunos, atualizando o mapeamento da \texttt{Disciplina}:
 
 \begin{Verbatim}[commandchars=+\[\]]
-    Alternativa (+underline[id_questao], +underline[id_alternativa], texto_alternativa, 
-    eh_correta)
-        id_questao referencia Questao
+    Disciplina (+underline[codigo_disciplina], nome_disciplina,
+    departamento, nome_professor, numero_questoes, numero_alunos)
 \end{Verbatim}
 
 Para melhor visualização, mostraremos a seguir todas as relações criadas:\\
 
-
 \begin{Verbatim}[commandchars=+\[\]]
     Disciplina (+underline[codigo_disciplina], nome_disciplina,
-    departamento_disciplina, professor_disciplina)
+    departamento, nome_professor, numero_questoes, numero_alunos)
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=+\[\]]
-    Aluno (+underline[ra_aluno], cpf_aluno, nome_aluno, email_aluno,
-    tel_residencial, tel_celular, codigo_disciplina)
+    Aluno (+underline[ra_aluno], cpf, nome_aluno, email_aluno, 
+    tel_residencial, tel_celular, total_respondidas, pontuacao)
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=+\[\]]
+    Aluno_Disciplina (+underline[ra_aluno], +underline[codigo_disciplina])
+        ra_aluno referencia Aluno
         codigo_disciplina referencia Disciplina
 \end{Verbatim}
 
-
 \begin{Verbatim}[commandchars=+\[\]]
-    Responde (+underline[ra_aluno], +underline[id_questao], +underline[id_resposta], opcao_aluno)
-        ra_aluno referencia Aluno
-        id_questao referencia Questao
-\end{Verbatim}
-
-\begin{Verbatim}[commandchars=+\[\]]
-    Questao (+underline[id_questao], texto_questao, peso_questao,
+    Questao (+underline[id_questao], texto_questao, peso,
     codigo_disciplina)
         codigo_disciplina referencia Disciplina
 \end{Verbatim}
@@ -476,6 +497,11 @@ Para melhor visualização, mostraremos a seguir todas as relações criadas:\\
         id_questao referencia Questao
 \end{Verbatim}
 
+\begin{Verbatim}[commandchars=+\[\]]
+    Responde (+underline[ra_aluno], +underline[id_questao], opcao)
+        ra_aluno referencia Aluno
+        id_questao referencia Questao
+\end{Verbatim}
 
 É importante ressaltar que mapeamento se encontra na 1FN, visto que todos os atributos são atômicos e monovalorados, ou seja, não existem atributos multivalorados. Também podemos dizer que o mapeamento se encontra na 2FN, visto que se encontra na 1FN e não há dependência funcional parcial.\\
 
@@ -493,6 +519,8 @@ Obtidas todas as relações e verificadas as normalizações, foi possível obte
     \label{fig:DERcompleto}
 \end{figure}
 \end{center}
+
+\section{Projeto Físico}
 
 
 

@@ -19,7 +19,7 @@ CREATE TABLE aluno (
     Nome_Aluno varchar(255) NOT NULL,
     CPF varchar(14) NOT NULL UNIQUE,
     Email_Aluno varchar(255) NOT NULL UNIQUE, 
-    Tel_Residencial varchar(14) NOT NULL,
+    Tel_Residencial varchar(14),    --?
     Tel_Celular varchar(15) NOT NULL,
     Total_Respondidas int NOT NULL DEFAULT 0, --! VOLTAR
     Pontuacao int NOT NULL DEFAULT 0
@@ -29,7 +29,8 @@ CREATE TABLE aluno (
 --* Tabela Aluno_Disciplina
 CREATE TABLE aluno_disciplina (
     RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE, -- Chave Estrangeira / Caso o ALUNO seja deletado, então a linha que relaciona este ALUNO a  DISCIPLINA também deixa de existir, ou seja, o ALUNO não está mais inscrito na DISCIPLINA.
-    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE -- Chave Estrangeira / Caso uma DISCIPLINA seja deletada, se um ALUNO estiver contido na disciplina, restrinja a deleção
+    Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE, -- Chave Estrangeira / Caso uma DISCIPLINA seja deletada, se um ALUNO estiver contido na disciplina, restrinja a deleção
+    PRIMARY KEY (RA_Aluno, Codigo_Disciplina) --?
 );
 
 
@@ -37,7 +38,7 @@ CREATE TABLE aluno_disciplina (
 CREATE TABLE questao (
     ID_Questao SERIAL NOT NULL PRIMARY KEY,
     Texto_Questao text NOT NULL,
-    Peso int NOT NULL DEFAULT 1,
+    Peso int NOT NULL DEFAULT 1 CHECK (Peso = 1), --?
     Codigo_Disciplina int NOT NULL REFERENCES disciplina(Codigo_Disciplina) ON DELETE RESTRICT ON UPDATE CASCADE -- Chave Estrangeira/ Caso a DISCIPLINA seja deletada, então todas QUESTÕES referentes também serão deletadas.
 );
 
