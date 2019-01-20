@@ -55,10 +55,10 @@ CREATE TABLE alternativa (
 --* Tabela Responde
 CREATE TABLE responde (
     RA_Aluno int NOT NULL REFERENCES aluno(RA_Aluno) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
-    ID_Questao int NOT NULL REFERENCES questao(ID_Questao) ON DELETE CASCADE ON UPDATE CASCADE,  -- Chave Estrangeira
-    -- Opcao int NOT NULL REFERENCES alternativa(ID_Alternativa) ON DELETE CASCADE ON UPDATE CASCADE, --! Por que não funciona? Chave Estrangeira
+    ID_Questao int NOT NULL,
     Opcao int NOT NULL,
-    PRIMARY KEY (RA_Aluno, ID_Questao)
+    PRIMARY KEY (RA_Aluno, ID_Questao, Opcao),
+    FOREIGN KEY (ID_Questao, Opcao) REFERENCES alternativa (ID_Questao, ID_Alternativa)
 );
 
 -- ================================================================= Criação das Triggers ==============================================================
