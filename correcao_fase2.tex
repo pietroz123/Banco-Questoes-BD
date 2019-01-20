@@ -9,6 +9,8 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{fancyvrb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
 
 \usepackage{placeins}
 
@@ -520,12 +522,13 @@ Obtidas todas as relações e verificadas as normalizações, foi possível obte
 \end{figure}
 \end{center}
 
+\newpage
 \section{Projeto Físico}
 
 O projeto físico corresponde à implementação em si do Banco de Dados Relacional. Os comandos foram criados à partir da linguagem SQL, através do Sistema de Gerenciamento de Banco de Dados (SGBD) PostgreSQL. Os scripts de criação do banco de dados se encontram anexados no arquivo \textit{esquema.sql}, e os de inserção se encontram anexados no arquivo \textit{dados.sql};
-
+\vspace{0.5cm}
 \subsection{Políticas de Restrição de Integridade}
-
+\vspace{0.5cm}
 Para a tabela \texttt{Disciplina}, temos as seguintes restrições de integridade:
 
 \begin{itemize}
@@ -537,6 +540,7 @@ Para a tabela \texttt{Disciplina}, temos as seguintes restrições de integridad
     \item {\texttt{Numero\_Alunos}}: NOT NULL, DEFAULT 0 e CHECK (Numero\_Alunos <= 20) 
 \end{itemize}
 
+\vspace{0.5cm}
 Para a tabela \texttt{Aluno}, temos as seguintes restrições de integridade:
 
 \begin{itemize}
@@ -550,6 +554,7 @@ Para a tabela \texttt{Aluno}, temos as seguintes restrições de integridade:
     \item \texttt{Tel\_Pontuacao}: NOT NULL e DEFAULT 0
 \end{itemize}
 
+\vspace{0.5cm}
 Para a tabela \texttt{Aluno\_Disciplina}, temos as seguintes restrições de integridade:
 
 \begin{itemize}
@@ -557,6 +562,7 @@ Para a tabela \texttt{Aluno\_Disciplina}, temos as seguintes restrições de int
     \item {\texttt{Codigo\_Disciplina}}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
 \end{itemize}
 
+\vspace{0.5cm}
 Para a tabela \texttt{Questao}, temos as seguintes restrições de integridade:
 
 \begin{itemize}
@@ -566,6 +572,7 @@ Para a tabela \texttt{Questao}, temos as seguintes restrições de integridade:
     \item \texttt{Codigo\_Disciplina}: NOT NULL, FOREIGN KEY, ON DELETE RESTRICT e ON UPDATE CASCADE
 \end{itemize}
 
+\vspace{0.5cm}
 Para a tabela \texttt{Alternativa}, temos as seguintes restrições de integridade:
 
 \begin{itemize}
@@ -575,6 +582,7 @@ Para a tabela \texttt{Alternativa}, temos as seguintes restrições de integrida
     \item \texttt{Eh\_Correta}: 'Sim' ou 'Nao'
 \end{itemize}
 
+\vspace{0.5cm}
 Para a tabela \texttt{Responde}, temos as seguintes restrições de integridade:
 
 \begin{itemize}
@@ -584,10 +592,32 @@ Para a tabela \texttt{Responde}, temos as seguintes restrições de integridade:
     \item \texttt{Eh\_Correta}: 'Sim' ou 'Nao'
 \end{itemize}
 
+\vspace{0.5cm}
 \begin{itemize}
     \item \texttt{RA\_Aluno}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
     \item \texttt{ID\_Questao}: NOT NULL, PRIMARY KEY, FOREIGN KEY, ON DELETE CASCADE e ON UPDATE CASCADE
     \item \texttt{Opcao}: NOT NULL
 \end{itemize}
+\vspace{0.5cm}
+\section{Especificação das Consultas em Álgebra Relacional e SQL}
+\vspace{0.5cm}
+
+\begin{center}
+    \textbf{Consulta 1 - Buscar um determinado Aluno pertencente a uma determinada Disciplina}
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT *
+    FROM aluno
+    JOIN aluno_disciplina
+    ON aluno.RA_Aluno = aluno_disciplina.RA_Aluno
+    WHERE aluno.RA_Aluno = \textbf{\textcolor{MidnightBlue}{<RA_Aluno>}}
+    AND Codigo_Disciplina = \textbf{\textcolor{MidnightBlue}{<Codigo_Disciplina>}};
+\end{Verbatim}
 
 \end{document}

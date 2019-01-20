@@ -34,10 +34,10 @@ INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('<Te
     - Atributo(s) de busca (ou de condições/filtros): RA ou Nome_Aluno, CodigoDisciplina
 
 -- Utilizando JOIN
-SELECT * FROM aluno JOIN disciplina ON aluno.Codigo_Disciplina = disciplina.Codigo_Disciplina AND RA_Aluno = <RA_Aluno> AND disciplina.Codigo_Disciplina = <Codigo_Disciplina>;
+SELECT * FROM aluno JOIN aluno_disciplina ON aluno.RA_Aluno = aluno_disciplina.RA_Aluno WHERE aluno.RA_Aluno = <RA_Aluno> AND Codigo_Disciplina = <Codigo_Disciplina>;
 
 -- Utilizando Produto Cartesiano
-SELECT * FROM aluno, disciplina WHERE aluno.Codigo_Disciplina = disciplina.Codigo_Disciplina AND RA_Aluno = <RA_Aluno> AND disciplina.Codigo_Disciplina = <Codigo_Disciplina>;
+SELECT * FROM aluno, aluno_disciplina WHERE aluno.RA_Aluno = aluno_disciplina.RA_Aluno AND aluno.RA_Aluno = <RA_Aluno> AND Codigo_Disciplina = <Codigo_Disciplina>;
 
 
 2. O sistema deve permitir busca de Questões a partir de uma palavra chave

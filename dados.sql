@@ -10,7 +10,6 @@ INSERT INTO disciplina (codigo_disciplina, nome_disciplina, nome_professor, depa
 
 --  ======================================== Alunos ========================================
 
--- Alunos de BD
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) 
 VALUES (743512, 'Bianca Gomes Rodrigues', '444.618.208.07', 'bgsrd@outlook.com', '(15) 3293-2383', '(15) 99143-4900');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) 
@@ -33,8 +32,6 @@ INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_
 VALUES (152420, 'Sérgio Renan Augusto da Cunha', '101.611.928-31', 'sergiorenanaugustodacunha@depotit.com.br', '(11) 2663-3286', '(11) 98844-3240');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) 
 VALUES (125656, 'Alexandre Benjamin Ian Bernardes', '927.052.178-86', 'aalexandrebenjaminianbernardes@plastic.com.br', '(11) 3620-6334', '(11) 99841-9296');
-
--- Alunos de SO
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) 
 VALUES (743588, 'Pietro Zuntini Bonfim', '410.242.338-98', 'pietrozuntini@gmail.com', '(15) 3228-1918', '(15) 99713-6093');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) 
@@ -591,11 +588,11 @@ INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('tê
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('hardware.', 'Nao', 45);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('servidor.', 'Nao', 45);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('aplicação.', 'Nao', 45);
-INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('desktop.', 'Nao', 45);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('desktop.', 'Sim', 45);
 
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('espera para o estado de pronto.', 'Nao', 46);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('bloqueado para o estado de pronto.', 'Nao', 46);
-INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('pronto para o estado de execução.', 'Nao', 46);
+INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('pronto para o estado de execução.', 'Sim', 46);
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('bloqueado para o estado de execução.', 'Nao', 46);
 
 INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('o acesso direto à memória e a reentrância.', 'Nao', 47);
@@ -751,7 +748,12 @@ INSERT INTO alternativa (Texto_Alternativa, Eh_Correta, ID_Questao) VALUES ('Gra
 -- ======================================== Responde ========================================
 
 
+
 -- Aleatorio
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 5, 20);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 18, 70);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 31, 121);
+INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 46, 183);
 INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (611685, 3, 12);
 INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (743512, 3, 11);
 INSERT INTO responde (RA_Aluno, ID_Questao, Opcao) VALUES (152420, 3, 12);
