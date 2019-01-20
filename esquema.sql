@@ -58,7 +58,7 @@ CREATE TABLE responde (
     ID_Questao int NOT NULL,
     Opcao int NOT NULL,
     PRIMARY KEY (RA_Aluno, ID_Questao, Opcao),
-    FOREIGN KEY (ID_Questao, Opcao) REFERENCES alternativa (ID_Questao, ID_Alternativa)
+    FOREIGN KEY (ID_Questao, Opcao) REFERENCES alternativa (ID_Questao, ID_Alternativa) ON DELETE CASCADE ON UPDATE CASCADE --! Alterar no Latex
 );
 
 -- ================================================================= Criação das Triggers ==============================================================
