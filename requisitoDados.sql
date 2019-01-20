@@ -79,6 +79,8 @@ Aluno
     - Atributo(s) de cálculo: obtido através do tipo-relacionamento ALUNO responde QUESTÃO
 
 SELECT count(*) FROM responde WHERE RA_Aluno = <RA_Aluno>;
+OU
+SELECT Total_Respondidas FROM aluno WHERE RA_Aluno = <RA_Aluno>;
 
 
 7. O sistema deve permitir o cálculo da pontuação do Aluno
@@ -105,6 +107,8 @@ SELECT Numero_Questoes FROM disciplina WHERE Codigo_Disciplina = <Codigo_Discipl
 
 -- Numero de Aluno E Numero de Questoes
 --!!!!!
+OU
+SELECT Numero_Alunos, Numero_Questoes FROM disciplina WHERE Codigo_Disciplina = <Codigo_Disciplina>; 
 
 
 9. O sistema deve permitir a visualização de todas as alternativas de uma determinada
@@ -123,6 +127,17 @@ FROM aluno_disciplina JOIN aluno
 ON aluno_disciplina.RA_Aluno = aluno.RA_Aluno
 WHERE Codigo_Disciplina = <Codigo_Disciplina>;
 
+
+-- =========================================================== AGREGACAO ==============================================================
+
+1. O sistema deve gerar relatórios da média da pontuação dos Alunos por Disciplina
+
+SELECT avg(pontuacao) FROM aluno_disciplina ad JOIN aluno a on ad.ra_aluno = a.ra_aluno GROUP BY ad.codigo_disciplina
+
+
+2. O sistema deve gerar relatórios da média do número de questões respondidas por Disciplina
+
+SELECT avg(total_respondidas), codigo_disciplina FROM aluno_disciplina ad JOIN aluno a on ad.ra_aluno = a.ra_aluno GROUP BY ad.codigo_disciplina
 
 
 -- ========================================================== MODIFICACOES ===========================================================
@@ -145,7 +160,4 @@ DELETE FROM questao WHERE ID_Questao = <ID_Questao>;
 2. O sistema deve permitir a remoção de Alunos
 
 DELETE FROM aluno WHERE RA_Aluno = <RA_Aluno>;
-
-
--- =========================================================== AGREGACAO ==============================================================
 
