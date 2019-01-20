@@ -1,0 +1,196 @@
+51) Uma estrutura de dados em que o primeiro elemento inserido seja o primeiro elemento a ser retirado é denominada
+A. pilha.
+C. árvore binária.
+-> D. fila.
+E. lista.
+
+
+52) As operações POP e PUSH são típicas de estruturas de dados largamente utilizadas em sistemas computacionais, conhecidas como
+B. Árvores B.
+C. Árvores binárias.
+D. Listas encadeadas.
+-> E. Pilhas.
+
+
+53) Considere que o Analista especializado em Tecnologia da Informação está especificando as técnicas e os recursos para a implantação da segurança da informação no Tribunal Regional do Trabalho da 6a Região. Para alcançar o objetivo de garantir a integridade da informação transmitida pela internet, o Analista deve utilizar
+A. a criptografia de chave simétrica.
+B. a criptografia de chave pública.
+-> C. a função Hash.
+E. o Token digital.
+
+
+54) Em uma Árvore B de ordem m, tem-se que: (i) cada nó contém no mínimo ______ registros (e ______ descendentes) e no máximo ______ registros (e _____ descendentes), exceto o nó-raiz que pode conter entre ______ registros; (ii) todos os nós-folha aparecem no mesmo nível. O particionamento de nós em uma Árvore B ocorre quando um registro precisa ser inserido em um nó com _______ registros.
+
+Assinale a alternativa que completa, correta e respectivamente, as lacunas do texto acima.
+
+-> A. m / m+1 / 2m / 2m+1 / 1 e 2m / 2m
+B. m / m-1 / 2m / 2m+2 / 0 e 2m / 6m
+C. m-1 / m / 4m / 4m+2 / 1 e 4m / 4m
+D. m-2 / m / 8m / 8m+2 / 1 e 6m / 6m
+
+
+55) Com relação a dados estruturados e não estruturados, assinale a opção correta.
+-> A. Dados não estruturados podem ser caracterizados por arquivos de diversos tipos  textos, imagens, vídeos, entre outros , cujas estruturas não são descritas implicitamente.
+B. Por padrão, documentos do tipo XML (eXtensible Markup Language) são estruturados.
+C. Dados não estruturados de um mesmo grupo possuem as mesmas descrições e, consequentemente, os mesmos atributos.
+D. Por padrão, dados não estruturados são organizados em blocos semânticos.
+
+
+56) Considere uma estrutura de dados em que cada elemento armazenado apresenta ligações de apontamento com seu sucessor e com o seu predecessor, o que possibilita que ela seja percorrida em qualquer sentido. Trata-se de
+A. uma fila.
+B. um grafo.
+-> C. uma lista duplamente encadeada.
+D. uma pilha.
+
+
+57) Com base em determinados requisitos para elaborar um projeto de arquivos, um Programador entendeu que haveria muita consulta aos dados, todavia pouca atualização. Nessa situação, a fim de agilizar as consultas, a opção mais adequada é projetar uma forma de organização de dados
+A. orientada a objetos.
+B. sequencial.
+-> D. indexada.
+E. relacional.
+
+
+58) Estruturas de dados básicas, como as pilhas e filas, são usadas em uma gama variada de aplicações. As filas, por exemplo, suportam alguns métodos essenciais, como o
+A. enqueue(x), que insere o elemento x no fim da fila, sobrepondo o último elemento.
+-> B. dequeue(), que remove e retorna o elemento do começo da fila; um erro ocorrerá se a fila estiver vazia.
+C. push(x), que insere o elemento x no topo da fila, sem sobrepor nenhum elemento.
+D. pop(), que remove o elemento do início da fila e o retorna, ou seja, devolve o último elemento inserido.
+
+
+59) Assinale a opção correspondente a estrutura de dados que utiliza uma função de dispersão que gera um índice a partir de determinada chave e que, para resolver os problemas de colisões, é combinada com outros tipos de estrutura de dados.
+A. listas encadeadas
+B. quicksort
+C. árvore binária
+-> E. tabela hash
+
+
+60) Acerca de estruturas de dados, assinale a opção correta.
+A. Uma tabela hash pode ser definida como um conjunto de nós  nodos.
+-> B. Registros referem-se a uma estrutura de dados que agrupa dados de tipos distintos, ou do mesmo tipo, e podem ser compostos por vários campos.
+C. No que se refere às características das estruturas de dados, vetores são estruturas estáticas e matrizes são estruturas dinâmicas.
+D. Vetores são estruturas de dados que agrupam dados de tipos distintos, ou do mesmo tipo, e podem ser compostos por vários campos.
+
+
+61) A respeito da organização de arquivos, assinale a opção correta.
+A. Para tornar mais eficiente o processo de busca no arquivo de índice, deve-se fazer uma busca binária; não é necessário ordenar as chaves do arquivo de índice.
+C. Para acelerar o processo de pesquisa em um arquivo, deve-se utilizar estruturas de indexação que dependem da ordem física do arquivo.
+-> D. A principal finalidade da criação de um índice é permitir a rápida localização de um registro no arquivo por meio de um argumento de pesquisa.
+E. Quando da criação de um arquivo de índice, os registros do arquivo de dados são organizados de acordo com a ordem da chave.
+
+
+62) O código de Huffman, comumente utilizado em procedimentos para compressão de dados, baseia-se na utilização de códigos de tamanho:
+A. fixo, que dependem da probabilidade de ocorrência de cada possível símbolo de entrada;
+-> B. variável, que dependem da probabilidade de ocorrência de cada possível símbolo de entrada;
+C. fixo, que estabelecem uma espécie de índice, que é associado a cada possível símbolo de entrada;
+D. variável, que dependem da ordenação lógica de todos os possíveis símbolos de entrada;
+
+
+63) A estrutura de dados denominada Lista Ligada (Lista Encadeada) é uma estrutura de dados
+A. linear e estática.
+B. hierárquica e dinâmica.
+-> C. linear, composta por células, sendo que, de uma forma geral, cada uma aponta para o próximo elemento da lista.
+E. estática, composta por células, sendo que uma célula genérica aponta tanto para o próximo elemento da lista quanto para o elemento anterior da lista.
+
+
+64) A estrutura de dados apropriada para armazenar uma sequência de requisições HTTP, que chegam à um servidor Web e que devem ser processadas de forma sequencial, é a:
+A. pilha;
+-> B. fila;
+D. tabela de dispersão;
+E. árvore B.
+
+
+65) O tamanho, em bites, da saída do algoritmo de hash MD5 é igual a
+-> B. 128.
+C. 160.
+D. 196.
+E. 256.
+
+
+66) Numa tabela hash adequadamente dimensionada, com N chaves, o número médio de acessos para localização de uma chave situa-se entre:
+-> A. 1 e 2
+B. N/2 e N
+C. lg(N) e N
+E. lg(N) e lg(N2)
+
+
+67) João tem um arquivo que contém uma lista de nomes e endereços, com mais de 100.000 registros, e precisa implementar um mecanismo de busca por nome. João considerou três alternativas:
+
+I. Árvore binária;
+II. Tabela Hash;
+III. Árvore B;
+IV. Busca linear.
+
+Depois de preparar os dados e testar cada algoritmo com nomes escolhidos aleatoriamente, João concluiu que, genericamente, a classificação desses métodos, do menor para o maior tempo de busca, é:
+
+A. I, II, III, IV;
+-> B. II, III, I, IV;
+C. III, I, IV, II;
+D. II, I, III, IV;
+
+
+68) Considere que a Manausprev armazena os nomes dos beneficiários de aposentadorias em uma Árvore Binária de Busca − ABB. Ao se armazenar, nesta ordem, os nomes Marcos, José, Carolina, Paula, Rui, Pedro e Maria, a ABB resultante
+A. é perfeitamente balanceada.
+B. tem altura 3, que corresponde à altura mínima para armazenar os 7 nomes.
+C. possui como folhas os nomes Rui e Maria.
+-> E. requer no máximo 4 comparações para localizar qualquer um dos 7 nomes.
+
+
+69) No desenvolvimento de sistemas, a escolha de estruturas de dados em memória é especialmente relevante. Dentre outras classificações, é possível agrupar essas estruturas em lineares e não lineares, conforme a quantidade de sucessores e antecessores que os elementos da estrutura possam ter.
+
+Assinale a opção que apresenta, respectivamente, estruturas de dados lineares e não lineares.
+
+A. Tabela de dispersão e fila.
+B. Estrutura de seleção e pilha.
+-> D. Pilha e árvore binária de busca.
+E. Fila e pilha.
+
+
+70) Em estrutura de dados as Filas são um tipo especial de lista linear, onde as inserções e exclusões são feitas em uma determinada ordem, pode-se dizer que esta ordem é:
+-> A. FIFO First In First Out
+B. FILO First In Last Out
+C. LIFO Last In First Out
+D. LINO Last In Never Out
+
+
+71) Considerando os conceitos de estruturas de dados, analise as afirmativas abaixo, dê valores Verdadeiro (V) ou Falso (F).
+
+( ) as filas são utilizadas para controlar o acesso de arquivos que concorrem a uma única impressora.
+
+( ) a pilha é uma estrutura de dados baseada no princípio LIFO, na qual os dados que foram inseridos primeiros na pilha serão os últimos a serem removidos.
+
+( ) os nós de uma árvore binária possuem graus zero, um ou dois.
+
+Assinale a alternativa que apresenta a sequência correta de cima para baixo.
+
+-> A. V - V - V
+B. V - V - F
+C. V - F - V
+D. F - F - V
+
+
+72) Em uma árvore AVL com grande quantidade de nós, o custo para inclusão de um nó no meio da árvore é proporcional a
+-> A. log(n)
+B. n
+C. n log(n)
+E. n2 log(n)
+
+
+73) Na teoria dos grafos, dois nós ligados por um arco são chamados de nós
+B. conexos.
+-> C. adjacentes.
+D. acíclicos.
+E. fortemente conexos.
+
+
+74) Assinale a opção em que é apresentado exemplo de estrutura de informação do tipo abstrata, balanceada, não linear e com relacionamento hierárquico.
+A. pilha
+-> B. árvore AVL
+D. lista duplamente encadeada
+E. árvore binária
+
+
+75) É um tipo de lista linear na qual as operações de inserção e retirada podem ser efetuadas tanto no início quanto no final da lista linear, ou seja, a inserção de um elemento X pode torná-lo ou o primeiro ou o último da lista linear. O tipo de lista descrito no texto acima é conhecido como
+A. Pilha.
+B. Fila.
+-> C. Deque.
+E. Grafo.

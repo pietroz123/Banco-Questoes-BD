@@ -1,5 +1,4 @@
 
--- Alunos de BD
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (743512, 'Bianca Gomes Rodrigues', '444.618.208.07', 'bgsrd@outlook.com', '(15) 3293-2383', '(15) 99143-4900');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (611685, 'Lucas Oliver Victor Melo', '098.810.918-29', 'lucasolivervictormelo@granvale.com.br', '(11) 3819-0035', '(11) 98958-3398');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (851725, 'Vicente Nathan Francisco Mendes', '465.775.178-60', 'vicentenathanfranciscomendes@caferibeiro.com.br', '(11) 2613-9077', '(11) 98630-7733');
@@ -11,8 +10,6 @@ INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (826384, 'Vitória Maria Oliveira', '732.608.608-78', 'vitoriamariaoliveira@riquefroes.com', '(11) 3699-0358', '(11) 98782-8991');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (152420, 'Sérgio Renan Augusto da Cunha', '101.611.928-31', 'sergiorenanaugustodacunha@depotit.com.br', '(11) 2663-3286', '(11) 98844-3240');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (125656, 'Alexandre Benjamin Ian Bernardes', '927.052.178-86', 'aalexandrebenjaminianbernardes@plastic.com.br', '(11) 3620-6334', '(11) 99841-9296');
-
--- Alunos de SO
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (743588, 'Pietro Zuntini Bonfim', '410.242.338-98', 'pietrozuntini@gmail.com', '(15) 3228-1918', '(15) 99713-6093');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (240891, 'Leandro Gabriel Pereira', '549.927.378-20', 'leandrogabrielpereira_@selfcd.com.br', '(11) 2710-2355', '(11) 98952-0541');
 INSERT INTO aluno (RA_Aluno, Nome_Aluno, CPF, Email_Aluno, Tel_Residencial, Tel_Celular) VALUES (111133, 'Augusto Juan Campos', '447.102.398-51', 'augustojuancampos-90@power.alston.com', '(11) 2545-3263', '(11) 98773-7381');

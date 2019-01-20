@@ -33,3 +33,23 @@ INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (855907, 22222
 INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (282390, 22222);
 INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (691045, 22222);
 INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (671045, 22222);
+
+-- Alunos de ED
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (611685, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (851725, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (592355, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (855907, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (508728, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (907292, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (587888, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (743588, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (240891, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (111133, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (659187, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (914258, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (319322, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (693596, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (282384, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (282390, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (671045, 33333);
+INSERT INTO aluno_disciplina (RA_Aluno, Codigo_Disciplina) VALUES (743512, 33333);
