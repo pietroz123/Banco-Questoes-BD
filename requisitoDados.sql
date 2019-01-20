@@ -70,7 +70,10 @@ SELECT * FROM disciplina WHERE Codigo_Disciplina = <Codigo_Disciplina>;
     - Atributo(s) de visualização do resultado: número de alunos
     - Atributo(s) de cálculo: CodigoDisciplina
 
-SELECT disciplina.Codigo_Disciplina AS Codigo_Disciplina, count(*) AS Numero_Alunos FROM aluno JOIN disciplina ON aluno.Codigo_Disciplina = disciplina.Codigo_Disciplina GROUP BY disciplina.Codigo_Disciplina;
+
+SELECT aluno_disciplina.Codigo_Disciplina AS Codigo_Disciplina, count(aluno_disciplina.RA_Aluno) AS Numero_Alunos 
+FROM aluno_disciplina 
+GROUP BY aluno_disciplina.Codigo_Disciplina;
 
 
 6. O sistema deve permitir o cálculo do número de Questões respondidas por um
@@ -78,7 +81,7 @@ Aluno
     - Atributo(s) de visualização do resultado: número de questões respondidas
     - Atributo(s) de cálculo: obtido através do tipo-relacionamento ALUNO responde QUESTÃO
 
-SELECT count(*) FROM responde WHERE RA_Aluno = <RA_Aluno>;
+SELECT count(ra_aluno) AS Numero_Questoes FROM responde WHERE RA_Aluno = 743512;
 OU
 SELECT Total_Respondidas FROM aluno WHERE RA_Aluno = <RA_Aluno>;
 
@@ -87,34 +90,29 @@ SELECT Total_Respondidas FROM aluno WHERE RA_Aluno = <RA_Aluno>;
     - Atributo(s) de visualização do resultado: pontuação do Aluno
     - Atributo(s) de cálculo: número de acertos
 
-SELECT count(*) FROM responde JOIN alternativa ON responde.Opcao = alternativa.ID_Alternativa WHERE RA_Aluno = <RA_Aluno> AND alternativa.Eh_Correta = 'Sim';
+SELECT count(ra_aluno) FROM responde JOIN alternativa ON responde.Opcao = alternativa.ID_Alternativa
+WHERE RA_Aluno = 743512 AND alternativa.Eh_Correta = 'Sim';
 OU
 SELECT Pontuacao FROM aluno WHERE RA_Aluno = <RA_Aluno>;
 
 
-8. O sistema deve permitir o cálculo do número de Alunos e do número de Questões
+8. O sistema deve permitir o cálculo do número de Questões
 de uma determinada Disciplina
 
--- Numero de Alunos
-SELECT count(*) FROM aluno_disciplina WHERE Codigo_Disciplina = <Codigo_Disciplina>;
-OU
-SELECT Numero_Alunos FROM disciplina WHERE Codigo_Disciplina = <Codigo_Disciplina>;
-
 -- Numero de Questoes
-SELECT count(*) FROM questao WHERE Codigo_Disciplina = <Codigo_Disciplina>;
+SELECT count(id_questao) AS Numero_Questoes FROM questao WHERE Codigo_Disciplina = <Codigo_Disciplina>;
 OU
 SELECT Numero_Questoes FROM disciplina WHERE Codigo_Disciplina = <Codigo_Disciplina>;
-
--- Numero de Aluno E Numero de Questoes
---!!!!!
-OU
-SELECT Numero_Alunos, Numero_Questoes FROM disciplina WHERE Codigo_Disciplina = <Codigo_Disciplina>; 
 
 
 9. O sistema deve permitir a visualização de todas as alternativas de uma determinada
 questão
 
-SELECT * FROM questao JOIN alternativa ON questao.ID_Questao = alternativa.ID_Questao WHERE questao.ID_Questao = <ID_Questao>;
+SELECT texto_questao, texto_alternativa, eh_correta
+FROM questao
+JOIN alternativa
+ON questao.ID_Questao = alternativa.ID_Questao
+WHERE questao.ID_Questao = <ID_Questao>;
 
 SELECT * FROM alternativa WHERE ID_Questao = <ID_Questao>; --!
 
@@ -132,12 +130,25 @@ WHERE Codigo_Disciplina = <Codigo_Disciplina>;
 
 1. O sistema deve gerar relatórios da média da pontuação dos Alunos por Disciplina
 
-SELECT avg(pontuacao) FROM aluno_disciplina ad JOIN aluno a on ad.ra_aluno = a.ra_aluno GROUP BY ad.codigo_disciplina
-
+SELECT aluno_disciplina.codigo_disciplina,
+           avg(pontuacao) AS Media_Pontuacao
+FROM aluno_disciplina
+JOIN aluno
+ON aluno.RA_Aluno = aluno_disciplina.RA_Aluno
+GROUP BY aluno_disciplina.Codigo_Disciplina
+ORDER BY Media_Pontuacao
 
 2. O sistema deve gerar relatórios da média do número de questões respondidas por Disciplina
 
-SELECT avg(total_respondidas), codigo_disciplina FROM aluno_disciplina ad JOIN aluno a on ad.ra_aluno = a.ra_aluno GROUP BY ad.codigo_disciplina
+SELECT codigo_disciplina, avg(total_respondidas) AS Media_Respondidas
+FROM aluno_disciplina JOIN aluno
+ON aluno_disciplina.ra_aluno = aluno.ra_aluno
+GROUP BY aluno_disciplina.codigo_disciplina
+ORDER BY Media_Respondidas
+
+3. 
+
+SELECT ra_aluno, count(ra_aluno) AS Numero_Questoes FROM responde GROUP BY ra_aluno;
 
 
 -- ========================================================== MODIFICACOES ===========================================================

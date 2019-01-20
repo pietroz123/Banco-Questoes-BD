@@ -12,6 +12,42 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xcolor}
 
+\usepackage{mathrsfs}
+
+\usepackage{fvextra} % loads also fancyvrb
+\usepackage{xpatch}
+
+\DeclareMathVersion{ttmath}
+\DeclareSymbolFont{latinletters}{OT1}{\ttdefault}{m}{n}
+%\SetSymbolFont{latinletters}{ttmath}{OT1}{\ttdefault}{m}{n}
+\SetSymbolFont{letters}{ttmath}{OML}{ccm}{m}{it}
+\SetSymbolFont{symbols}{ttmath}{OMS}{ccsy}{m}{n}
+\SetSymbolFont{largesymbols}{ttmath}{OMX}{ccex}{m}{n}
+
+\newcommand{\changeletters}{%
+  \count255=`A
+  \advance\count255 -1
+  \loop\ifnum\count255<`Z
+    \advance\count255 1
+    \mathcode\count255=\numexpr\number\symlatinletters*256+\count255\relax
+  \repeat
+  \count255=`a
+  \advance\count255 -1
+  \loop\ifnum\count255<`z
+    \advance\count255 1
+    \mathcode\count255=\numexpr\number\symlatinletters*256+\count255\relax
+  \repeat
+  \count255=`0
+  \advance\count255 -1
+  \loop\ifnum\count255<`9
+    \advance\count255 1
+    \mathcode\count255=\numexpr\number\symlatinletters*256+\count255\relax
+  \repeat
+}
+
+\xapptocmd{\ttfamily}{\mathversion{ttmath}\changeletters}{}{}
+
+
 \usepackage{placeins}
 
 \setcounter{tocdepth}{4}
@@ -273,10 +309,12 @@ Os Requisitos de Dados representam as consultas, inserções, modificações, re
             \item Atributo(s) de visualização do resultado: pontuação do Aluno
             \item Atributo(s) de cálculo: peso da questão e número de acertos
         \end{itemize}
-    \item O sistema deve permitir o cálculo do número de Alunos e do número de Questões de uma determinada \texttt{Disciplina}
+    \item O sistema deve permitir o cálculo do número de Questões de uma determinada \texttt{Disciplina}
     % AGREGAÇÃO
     \item O sistema deve permitir a visualização de todas as alternativas de uma determinada questão
-    \item O sistema deve permitir a visualização de todos os alunos em uma determinada \texttt{Disciplina}
+    \item O sistema deve gerar relatórios da média da pontuação dos Alunos por Disciplina
+    \item O sistema deve gerar relatórios da média do número de Questões respondidas por Disciplina
+    \item O sistema deve gerar relatórios do número de Questões respondidas por Aluno
 \end{enumerate}
 
 
@@ -600,7 +638,23 @@ Para a tabela \texttt{Responde}, temos as seguintes restrições de integridade:
 \end{itemize}
 \vspace{0.5cm}
 \section{Especificação das Consultas em Álgebra Relacional e SQL}
+Nesta seção serão apresentadas as consultas propostas previamente na seção \texttt{Requisitos de Dados}. As consultas a seguir estão tanto na Álgebra Relacional (AR), como na linguagem do banco de dados SQL.
 \vspace{0.5cm}
+
+% \begin{displaymath}
+%     \rho{A} \to \Bigg(
+%         \big(Inscricoes \big)
+%         \bowtie_{cod=codcli} \pi_{codcli}
+%         \bigg(
+%             \Big(Vendas \Big)
+%             \bowtie_{codcli=cod}
+%             \Big(
+%                 \pi_{cod}
+%                 \big( \sigma_{nome=<nomecli>} \big)
+%             \Big)
+%         \bigg)
+%     \Bigg)
+% \end{displaymath}
 
 \begin{center}
     \textbf{Consulta 1 - Buscar um determinado Aluno pertencente a uma determinada Disciplina}
@@ -608,16 +662,383 @@ Para a tabela \texttt{Responde}, temos as seguintes restrições de integridade:
 \begin{center}
     \textbf{AR}
 \end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow aluno \bowtie aluno\_disciplina
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linhas \leftarrow \sigma_{(RA\_Aluno = \textcolor{MidnightBlue}{<RA\_Aluno>} \wedge Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>})}(join)
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \pi_{(RA\_Aluno, Nome\_Aluno)}(linhas)
+\end{Verbatim}
+
 \begin{center}
     \textbf{SQL}
 \end{center}
 \begin{Verbatim}[commandchars=\\\{\}]
-    SELECT *
+    SELECT RA_Aluno, Nome_Aluno
     FROM aluno
     JOIN aluno_disciplina
     ON aluno.RA_Aluno = aluno_disciplina.RA_Aluno
     WHERE aluno.RA_Aluno = \textbf{\textcolor{MidnightBlue}{<RA_Aluno>}}
     AND Codigo_Disciplina = \textbf{\textcolor{MidnightBlue}{<Codigo_Disciplina>}};
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 2 - Listar uma determinada Questão e suas respectivas Alternativas a partir de uma palavra chave }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow questao \bowtie alternativa 
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linhas \leftarrow \sigma_{(Texto\_Questao = "\%\textcolor{MidnightBlue}{<palavrachave>}\%")}(join)
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \pi_{(ID\_Questao, Texto\_Questao, Codigo\_Disciplina)}(linhas)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT *
+    FROM questao 
+    JOIN alternativa 
+    ON questao.ID\_Questao = alternativa.ID\_Questao 
+    WHERE Texto\_Questao ILIKE '\%\textcolor{MidnightBlue}{<palavrachave>}\%';
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 3 - Listar todas as Questões de uma determinada Disciplina }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linhas \leftarrow \sigma_{(Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>)}}(questao)
+\end{Verbatim}
+
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \pi_{(ID\_Questao, Texto\_Questao, Codigo\_Disciplina)}(linhas)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT * 
+    FROM questao 
+    WHERE Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>};
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 4 - Listar as Disciplinas a partir do código }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linhas \leftarrow \sigma_{(Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>)}}(disciplina)     
+\end{Verbatim}
+
+\begin{Verbatim}[mathescape, commandchars=\\\{\}]
+    \pi_{(Codigo\_Disciplina, Nome\_Disciplina, Nome\_Professor, Departamento, Numero\_Questoes, Numero\_Alunos)}(linhas)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT * 
+    FROM disciplina 
+    WHERE Codigo_Disciplina = \textcolor{MidnightBlue}{<Codigo_Disciplina>};
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 5 - Calcula o número de Alunos inscritos por Disciplina}
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp \leftarrow _{Codigo\_Disciplina}{\mathscr{F}}_{(COUNT(RA\_Aluno))}(aluno\_disciplina)
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(Codigo\_Disciplina, Numero\_Alunos)}\big(temp\big)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT aluno_disciplina.Codigo_Disciplina AS Codigo_Disciplina,
+           count(aluno_disciplina.RA_Aluno) AS Numero_Alunos
+    FROM aluno_disciplina 
+    GROUP BY aluno_disciplina.Codigo_Disciplina;
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 6 - Calcula o número de questões respondidas por um determinado Aluno}
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp_1 \leftarrow \sigma_{(RA\_Aluno = \textcolor{MidnightBlue}{<RA\_Aluno>})}(responde)
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp_2 \leftarrow \mathscr{F}_{(COUNT(RA\_Aluno))}(temp_1)
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(Numero\_Questoes)}(temp_2)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT count(RA_Aluno) AS Numero\_Questoes 
+    FROM responde 
+    WHERE RA\_Aluno = \textcolor{MidnightBlue}{<RA\_Aluno>};
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 7 - Calcula a pontuação do Aluno}
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow responde \bowtie alternativa
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linha \leftarrow \sigma_{(RA\_Aluno = \textcolor{MidnightBlue}{<RA\_Aluno>} \wedge Eh\_Correta = "Sim")}(join)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp_1 \leftarrow \mathscr{F}_{(COUNT(RA\_Aluno))}(linha)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(Pontuacao)}(temp_1)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT count(RA_Aluno) AS Pontuacao
+    FROM responde 
+    JOIN alternativa 
+    ON responde.Opcao = alternativa.ID_Alternativa 
+    WHERE RA_Aluno = \textcolor{MidnightBlue}{<RA_Aluno>} AND alternativa.Eh_Correta = 'Sim';
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 8 - Calcula o número de Alunos  }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp_1 \leftarrow \sigma_{(Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>}}(questao)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp_2 \leftarrow \mathscr{F}_{(COUNT(ID\_Questao))}(temp_1)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(Numero\_Questoes)}(temp_2)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT count(ID_Questao) AS Numero\_Questoes
+    FROM questao
+    WHERE Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>};
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 9 - Lista todas as Alternativas de uma determinada Questão }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow questao \bowtie alternativa 
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linhas \leftarrow \sigma_{(ID\_Questao = \textcolor{MidnightBlue}{<ID\_Questao>}}(join)
+\end{Verbatim}
+
+\begin{Verbatim}[mathescape, commandchars=\\\{\}]
+    \pi_{(Texto\_Questao, Texto\_Alternatvia, Eh\_Coreta)}(linhas)
+\end{Verbatim}
+
+\pagebreak
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT Texo_Questao, Texto_Alternativa, Eh_Correta
+    FROM questao 
+    JOIN alternativa 
+    ON questao.ID\_Questao = alternativa.ID\_Questao 
+    WHERE questao.ID\_Questao = \textcolor{MidnightBlue}{<ID\_Questao>};
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 10 - Lista todos os Alunos de uma determinada Disciplina }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow aluno \bowtie aluno\_disciplina 
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    linhas \leftarrow \sigma_{(Codigo\_Disciplina = \textcolor{MidnightBlue}{<Codigo\_Disciplina>}}(join)
+\end{Verbatim}
+
+\begin{Verbatim}[mathescape, commandchars=\\\{\}]
+    \pi_{(Codigo\_Disciplina, RA\_Aluno, Nome\_Aluno)}(linhas)
+\end{Verbatim}
+
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT aluno_disciplina.Codigo_Disciplina,
+           aluno.RA_Aluno, aluno.Nome_Aluno
+    FROM aluno_disciplina 
+    JOIN aluno 
+    ON aluno_disciplina.RA_Aluno = aluno.RA_Aluno
+    WHERE Codigo_Disciplina = \textcolor{MidnightBlue}{<Codigo_Disciplina>};
+\end{Verbatim}
+
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 11 - Calcula a média da pontuação dos Alunos por Disciplina }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow aluno \bowtie aluno\_disciplina
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp \leftarrow _{Codigo\_Disciplina}\mathscr{F}_{(AVG(Pontuacao))}(join)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(Codigo\_Disciplina, Media\_Pontuacao)} (temp) 
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT aluno_disciplina.codigo_disciplina, 
+           avg(pontuacao) AS Media_Pontuacao
+    FROM aluno_disciplina
+    JOIN aluno
+    ON aluno.RA_Aluno = aluno_disciplina.RA_Aluno
+    GROUP BY aluno_disciplina.Codigo_Disciplina
+    ORDER BY Media\_Pontuacao
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 12 - Calcula a média de Questões respondidas por Disciplina }
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    join \leftarrow aluno \bowtie aluno\_disciplina
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp \leftarrow _{Codigo\_Disciplina}\mathscr{F}_{(AVG(Total\_Respondidas))}(join)
+\end{Verbatim}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(Codigo\_Disciplina, Media\_Respondidas)} (temp) 
+\end{Verbatim}
+
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT codigo_disciplina,
+           avg(total_respondidas) AS Media_Respondidas
+    FROM aluno_disciplina 
+    JOIN aluno
+    ON aluno_disciplina.ra_aluno = aluno.ra_aluno
+    GROUP BY aluno_disciplina.codigo_disciplina
+    ORDER BY Media_Respondidas
+\end{Verbatim}
+
+\vspace{0.5cm}
+\begin{center}
+    \textbf{Consulta 13 - Listar o número de questões respondidas por Aluno}
+\end{center}
+\begin{center}
+    \textbf{AR}
+\end{center}
+
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    temp \leftarrow _{RA\_Aluno}\mathscr{F}_{(COUNT(RA\_Aluno))}(responde)
+\end{Verbatim}
+\begin{Verbatim}[ mathescape, commandchars=\\\{\}]
+    \rho_{(RA\_Aluno, Numero\_Questoes)}(temp)
+\end{Verbatim}
+
+\begin{center}
+    \textbf{SQL}
+\end{center}
+\begin{Verbatim}[commandchars=\\\{\}]
+    SELECT RA_Aluno, count(RA_Aluno) AS Numero_Questoes 
+    FROM responde 
+    GROUP BY ra_aluno;
 \end{Verbatim}
 
 \end{document}
