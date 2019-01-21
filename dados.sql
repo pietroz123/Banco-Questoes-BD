@@ -1,3 +1,8 @@
+-- Este arquivo contém as inserções do projeto Banco de Questões
+
+-- Bianca Gomes Rodrigues   743512
+-- Pietro Zuntini Bonfim    743588
+
 --  ======================================== Disciplinas ========================================
 
 -- Disciplina de BD
